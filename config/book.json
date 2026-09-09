@@ -1,0 +1,21 @@
+{
+  "trim_in": 8.5,
+  "bleed_in": 0.125,
+  "safe_margin_in": 0.25,
+  "gutter_extra_in": 0.22,
+  "author": "Anshul Thakur",
+  "publisher": "Infinity Hub",
+  "year": 2026,
+  "edition": "First edition",
+  "age_range": "3–8",
+  "binding": "paperback",
+  "interior_color": true,
+  "paper": "white",
+  "kdp_notes": {
+    "interior_pdf_page_in": 8.75,
+    "do_not_include_crop_marks": true,
+    "cover_uploaded_separately": true,
+    "spine_white_paper_in_per_page": 0.002252,
+    "spine_cream_paper_in_per_page": 0.0025
+  }
+}

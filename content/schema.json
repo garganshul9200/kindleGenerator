@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Pip's Alphabet book content",
+  "description": "One file per language. Swap this file and rebuild to generate a new edition.",
+  "type": "object",
+  "required": ["meta", "front", "letters", "activities", "certificate"],
+  "properties": {
+    "back": {
+      "type": "object",
+      "description": "Standalone back-cover copy for KDP wrap / cover-back.pdf",
+      "properties": {
+        "headline": { "type": "string" },
+        "blurb": { "type": "string" },
+        "bullets": { "type": "array", "items": { "type": "string" } },
+        "closing": { "type": "string" }
+      }
+    },
+    "meta": {
+      "type": "object",
+      "required": ["language", "language_code", "script", "title", "subtitle"],
+      "properties": {
+        "language": { "type": "string" },
+        "language_code": { "type": "string" },
+        "script": { "enum": ["latin", "devanagari", "gurmukhi"] },
+        "title": { "type": "string" },
+        "subtitle": { "type": "string" },
+        "series": { "type": "string" },
+        "mascot": { "type": "string" },
+        "tagline": { "type": "string" },
+        "direction": { "enum": ["ltr", "rtl"] }
+      }
+    },
+    "letters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["letter", "uppercase", "word", "sentence", "fact", "image"],
+        "properties": {
+          "letter": { "type": "string" },
+          "uppercase": { "type": "string" },
+          "lowercase": { "type": "string" },
+          "word": { "type": "string" },
+          "pronunciation": { "type": "string" },
+          "sentence": { "type": "string" },
+          "fact": { "type": "string" },
+          "image": { "type": "string", "description": "Filename or stem in assets/illustrations/scenes/" },
+          "action": { "type": "string" },
+          "theme": { "type": "string" }
+        }
+      }
+    }
+  }
+}

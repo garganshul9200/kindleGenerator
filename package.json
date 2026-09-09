@@ -1,0 +1,30 @@
+{
+  "name": "alphabet-book-kdp",
+  "version": "1.0.0",
+  "description": "Print-ready children's alphabet book template for Amazon KDP",
+  "scripts": {
+    "build:en": "python3 src/build.py --lang en",
+    "build:hi": "python3 src/build.py --lang hi",
+    "build:pa": "python3 src/build.py --lang pa",
+    "build:es": "python3 src/build.py --lang es",
+    "build:fr": "python3 src/build.py --lang fr",
+    "pdf:en": "python3 src/build.py --lang en --pdf",
+    "pdf:en:kdp": "python3 src/build.py --lang en --pdf --no-cover"
+  },
+  "keywords": [
+    "kdp",
+    "children",
+    "alphabet",
+    "print"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@fontsource/baloo-2": "^5.3.0",
+    "@fontsource/baloo-paaji-2": "^5.3.0",
+    "@fontsource/fredoka": "^5.3.0",
+    "@fontsource/nunito": "^5.3.0",
+    "playwright": "^1.63.0"
+  }
+}

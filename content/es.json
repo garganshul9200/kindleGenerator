@@ -1,0 +1,551 @@
+{
+  "meta": {
+    "language": "Spanish",
+    "language_code": "es",
+    "script": "latin",
+    "title": "El alfabeto de Pip",
+    "subtitle": "Una aventura de letras",
+    "series": "Las aventuras del alfabeto de Pip",
+    "mascot": "Pip",
+    "tagline": "Descubre cada letra con Pip, el zorrito.",
+    "direction": "ltr",
+    "age": "De 3 a 7 años"
+  },
+  "back": {
+    "headline": "Una aventura de letras con Pip",
+    "blurb": "De la A a la Z, Pip el zorrito trepa, juega y descubre una palabra nueva en cada página. Traza las letras grandes, busca a Pip en las imágenes y comparte un dato curioso — perfecto para la hora de dormir, los viajes y los primeros lectores.",
+    "bullets": [
+      "26 páginas ilustradas de letras",
+      "Actividades de trazo, repaso y emparejar",
+      "Certificado al terminar el alfabeto"
+    ],
+    "closing": "Abre la tapa. Conoce a Pip. Empieza la aventura."
+  },
+  "front": {
+    "copyright_line": "Un abecedario ilustrado para lectores curiosos.",
+    "belongs_title": "Este libro pertenece a",
+    "belongs_name_label": "Nombre",
+    "belongs_age_label": "Edad",
+    "belongs_note": "Pip está feliz de que hayas venido.",
+    "meet_title": "Conoce a Pip",
+    "meet_body": "Este es Pip, un zorrito con una curiosidad enorme. Pip trepa letras, prueba manzanas, vuela cometas y hace cien preguntas. En cada página, Pip descubre algo nuevo — y tú también.",
+    "meet_prompt": "¿Puedes encontrar a Pip en cada letra?",
+    "how_title": "Cómo usar este libro",
+    "how_intro": "Léanlo juntos. Señalen, jueguen y párense cuando quieran. No hay una forma incorrecta.",
+    "how_steps": [
+      {
+        "n": "1",
+        "title": "Mira",
+        "text": "Señala la letra grande. Recórrela con un dedo."
+      },
+      {
+        "n": "2",
+        "title": "Di",
+        "text": "Di el sonido y después di la palabra en voz alta."
+      },
+      {
+        "n": "3",
+        "title": "Busca a Pip",
+        "text": "¿Dónde se esconde Pip esta vez? ¿Qué está haciendo?"
+      },
+      {
+        "n": "4",
+        "title": "Descubre",
+        "text": "Mira la ilustración grande. Hablen juntos del dato curioso."
+      }
+    ]
+  },
+  "letters": [
+    {
+      "letter": "A",
+      "uppercase": "A",
+      "lowercase": "a",
+      "word": "Árbol",
+      "pronunciation": "AHR-bol",
+      "sentence": "Árbol empieza con A.",
+      "fact": "Un árbol da sombra, oxígeno y un hogar a los pájaros.",
+      "image": "tree",
+      "action": "Pip descansa bajo un árbol amigo.",
+      "pip": {
+        "x": 52,
+        "y": 46,
+        "scale": 1,
+        "rotate": -8
+      }
+    },
+    {
+      "letter": "B",
+      "uppercase": "B",
+      "lowercase": "b",
+      "word": "Barco",
+      "pronunciation": "BAHR-ko",
+      "sentence": "Barco empieza con B.",
+      "fact": "Un barco flota y nos lleva por el agua.",
+      "image": "whale",
+      "action": "Pip navega hacia una gran aventura.",
+      "pip": {
+        "x": 62,
+        "y": 34,
+        "scale": 0.95,
+        "rotate": 10
+      }
+    },
+    {
+      "letter": "C",
+      "uppercase": "C",
+      "lowercase": "c",
+      "word": "Casa",
+      "pronunciation": "KAH-sa",
+      "sentence": "Casa empieza con C.",
+      "fact": "Una casa es el lugar donde nos sentimos seguros.",
+      "image": "igloo",
+      "action": "Pip visita una casita acogedora.",
+      "pip": {
+        "x": 58,
+        "y": 50,
+        "scale": 1,
+        "rotate": 6
+      }
+    },
+    {
+      "letter": "D",
+      "uppercase": "D",
+      "lowercase": "d",
+      "word": "Dado",
+      "pronunciation": "DAH-do",
+      "sentence": "Dado empieza con D.",
+      "fact": "Un dado tiene seis caras y cada una tiene puntos.",
+      "image": "ball",
+      "action": "Pip juega con un dado redondo y alegre.",
+      "pip": {
+        "x": 60,
+        "y": 36,
+        "scale": 0.95,
+        "rotate": -4
+      }
+    },
+    {
+      "letter": "E",
+      "uppercase": "E",
+      "lowercase": "e",
+      "word": "Elefante",
+      "pronunciation": "eh-leh-FAHN-teh",
+      "sentence": "Elefante empieza con E.",
+      "fact": "Un elefante usa su trompa para beber, saludar y darse un baño.",
+      "image": "goat",
+      "action": "Pip conoce a un enorme amigo.",
+      "pip": {
+        "x": 56,
+        "y": 30,
+        "scale": 0.92,
+        "rotate": 8
+      }
+    },
+    {
+      "letter": "F",
+      "uppercase": "F",
+      "lowercase": "f",
+      "word": "Flor",
+      "pronunciation": "FLOR",
+      "sentence": "Flor empieza con F.",
+      "fact": "Una flor tiene pétalos y a menudo un olor dulce.",
+      "image": "leaf",
+      "action": "Pip huele una flor abierta al sol.",
+      "pip": {
+        "x": 48,
+        "y": 28,
+        "scale": 0.9,
+        "rotate": 12
+      }
+    },
+    {
+      "letter": "G",
+      "uppercase": "G",
+      "lowercase": "g",
+      "word": "Gato",
+      "pronunciation": "GAH-to",
+      "sentence": "Gato empieza con G.",
+      "fact": "Un gato ronronea cuando se siente querido.",
+      "image": "cat",
+      "action": "Pip juega con un gatito suave.",
+      "pip": {
+        "x": 60,
+        "y": 48,
+        "scale": 1,
+        "rotate": -6
+      }
+    },
+    {
+      "letter": "H",
+      "uppercase": "H",
+      "lowercase": "h",
+      "word": "Helado",
+      "pronunciation": "eh-LAH-do",
+      "sentence": "Helado empieza con H.",
+      "fact": "El helado es frío, dulce y se derrite si no lo comes pronto.",
+      "image": "juice",
+      "action": "Pip prueba un helado en un día de sol.",
+      "pip": {
+        "x": 50,
+        "y": 32,
+        "scale": 0.92,
+        "rotate": 4
+      }
+    },
+    {
+      "letter": "I",
+      "uppercase": "I",
+      "lowercase": "i",
+      "word": "Isla",
+      "pronunciation": "EES-la",
+      "sentence": "Isla empieza con I.",
+      "fact": "Una isla es tierra rodeada de agua por todos lados.",
+      "image": "igloo",
+      "action": "Pip explora una islita tranquila.",
+      "pip": {
+        "x": 28,
+        "y": 42,
+        "scale": 0.95,
+        "rotate": -10
+      }
+    },
+    {
+      "letter": "J",
+      "uppercase": "J",
+      "lowercase": "j",
+      "word": "Jirafa",
+      "pronunciation": "hee-RAH-fa",
+      "sentence": "Jirafa empieza con J.",
+      "fact": "Una jirafa tiene el cuello más largo de todos los animales.",
+      "image": "tree",
+      "action": "Pip mira hacia arriba, y más arriba.",
+      "pip": {
+        "x": 48,
+        "y": 38,
+        "scale": 0.95,
+        "rotate": 8
+      }
+    },
+    {
+      "letter": "K",
+      "uppercase": "K",
+      "lowercase": "k",
+      "word": "Kiwi",
+      "pronunciation": "KEE-wee",
+      "sentence": "Kiwi empieza con K.",
+      "fact": "El kiwi es una fruta peluda por fuera y verde por dentro.",
+      "image": "apple",
+      "action": "Pip prueba un kiwi jugoso.",
+      "pip": {
+        "x": 58,
+        "y": 44,
+        "scale": 1,
+        "rotate": -12
+      }
+    },
+    {
+      "letter": "L",
+      "uppercase": "L",
+      "lowercase": "l",
+      "word": "Luna",
+      "pronunciation": "LOO-na",
+      "sentence": "Luna empieza con L.",
+      "fact": "La luna brilla de noche porque refleja la luz del sol.",
+      "image": "moon",
+      "action": "Pip contempla la luna grande y dorada.",
+      "pip": {
+        "x": 42,
+        "y": 30,
+        "scale": 0.9,
+        "rotate": 6
+      }
+    },
+    {
+      "letter": "M",
+      "uppercase": "M",
+      "lowercase": "m",
+      "word": "Manzana",
+      "pronunciation": "mahn-SAH-na",
+      "sentence": "Manzana empieza con M.",
+      "fact": "Una manzana cruje cuando le das un buen bocado.",
+      "image": "apple",
+      "action": "Pip muerde una manzana brillante.",
+      "pip": {
+        "x": 50,
+        "y": 40,
+        "scale": 0.95,
+        "rotate": 0
+      }
+    },
+    {
+      "letter": "N",
+      "uppercase": "N",
+      "lowercase": "n",
+      "word": "Nube",
+      "pronunciation": "NOO-beh",
+      "sentence": "Nube empieza con N.",
+      "fact": "Una nube está hecha de gotitas de agua muy pequeñas.",
+      "image": "rainbow",
+      "action": "Pip mira las nubes que cambian de forma.",
+      "pip": {
+        "x": 58,
+        "y": 36,
+        "scale": 0.95,
+        "rotate": 8
+      }
+    },
+    {
+      "letter": "Ñ",
+      "uppercase": "Ñ",
+      "lowercase": "ñ",
+      "word": "Ñandú",
+      "pronunciation": "NYAHN-doo",
+      "sentence": "Ñandú empieza con Ñ.",
+      "fact": "El ñandú es un ave grande de América que corre muy rápido.",
+      "image": "zebra",
+      "action": "Pip corre junto a un ñandú curioso.",
+      "pip": {
+        "x": 62,
+        "y": 48,
+        "scale": 1,
+        "rotate": 6
+      }
+    },
+    {
+      "letter": "O",
+      "uppercase": "O",
+      "lowercase": "o",
+      "word": "Oso",
+      "pronunciation": "OH-so",
+      "sentence": "Oso empieza con O.",
+      "fact": "Un oso duerme un sueño muy largo cuando llega el invierno.",
+      "image": "owl",
+      "action": "Pip saluda a un oso suave y redondo.",
+      "pip": {
+        "x": 62,
+        "y": 48,
+        "scale": 1,
+        "rotate": 6
+      }
+    },
+    {
+      "letter": "P",
+      "uppercase": "P",
+      "lowercase": "p",
+      "word": "Pelota",
+      "pronunciation": "peh-LOH-ta",
+      "sentence": "Pelota empieza con P.",
+      "fact": "Una pelota rueda, bota y sirve para mil juegos.",
+      "image": "ball",
+      "action": "Pip patea una pelota por el prado.",
+      "pip": {
+        "x": 58,
+        "y": 32,
+        "scale": 0.92,
+        "rotate": -6
+      }
+    },
+    {
+      "letter": "Q",
+      "uppercase": "Q",
+      "lowercase": "q",
+      "word": "Queso",
+      "pronunciation": "KEH-so",
+      "sentence": "Queso empieza con Q.",
+      "fact": "El queso se hace con leche y puede ser suave o fuerte.",
+      "image": "quilt",
+      "action": "Pip prueba un trocito de queso.",
+      "pip": {
+        "x": 60,
+        "y": 50,
+        "scale": 1,
+        "rotate": 4
+      }
+    },
+    {
+      "letter": "R",
+      "uppercase": "R",
+      "lowercase": "r",
+      "word": "Ratón",
+      "pronunciation": "rah-TOHN",
+      "sentence": "Ratón empieza con R.",
+      "fact": "Un ratón es pequeño, rápido y muy curioso.",
+      "image": "cat",
+      "action": "Pip se hace amigo de un ratoncito.",
+      "pip": {
+        "x": 56,
+        "y": 38,
+        "scale": 0.95,
+        "rotate": 10
+      }
+    },
+    {
+      "letter": "S",
+      "uppercase": "S",
+      "lowercase": "s",
+      "word": "Sol",
+      "pronunciation": "SOL",
+      "sentence": "Sol empieza con S.",
+      "fact": "El sol es una estrella y nos regala luz y calor.",
+      "image": "sun",
+      "action": "Pip se calienta bajo un sol sonriente.",
+      "pip": {
+        "x": 58,
+        "y": 42,
+        "scale": 1,
+        "rotate": -8
+      }
+    },
+    {
+      "letter": "T",
+      "uppercase": "T",
+      "lowercase": "t",
+      "word": "Tren",
+      "pronunciation": "TREN",
+      "sentence": "Tren empieza con T.",
+      "fact": "Un tren viaja sobre rieles y puede ser muy largo.",
+      "image": "train",
+      "action": "Pip espera un tren de colores.",
+      "pip": {
+        "x": 50,
+        "y": 30,
+        "scale": 0.9,
+        "rotate": 0
+      }
+    },
+    {
+      "letter": "U",
+      "uppercase": "U",
+      "lowercase": "u",
+      "word": "Uva",
+      "pronunciation": "OO-va",
+      "sentence": "Uva empieza con U.",
+      "fact": "Las uvas crecen en racimos y pueden ser verdes o moradas.",
+      "image": "apple",
+      "action": "Pip prueba una uva dulce.",
+      "pip": {
+        "x": 55,
+        "y": 34,
+        "scale": 0.95,
+        "rotate": 6
+      }
+    },
+    {
+      "letter": "V",
+      "uppercase": "V",
+      "lowercase": "v",
+      "word": "Vaca",
+      "pronunciation": "VAH-ka",
+      "sentence": "Vaca empieza con V.",
+      "fact": "Una vaca nos da leche y come hierba todo el día.",
+      "image": "goat",
+      "action": "Pip visita a una vaca en el prado.",
+      "pip": {
+        "x": 50,
+        "y": 46,
+        "scale": 1,
+        "rotate": -4
+      }
+    },
+    {
+      "letter": "W",
+      "uppercase": "W",
+      "lowercase": "w",
+      "word": "Waffle",
+      "pronunciation": "WAH-fle",
+      "sentence": "Waffle empieza con W.",
+      "fact": "Un waffle es un pastelito crujiente con cuadritos.",
+      "image": "quilt",
+      "action": "Pip desayuna un waffle calentito.",
+      "pip": {
+        "x": 52,
+        "y": 38,
+        "scale": 0.95,
+        "rotate": 8
+      }
+    },
+    {
+      "letter": "X",
+      "uppercase": "X",
+      "lowercase": "x",
+      "word": "Xilófono",
+      "pronunciation": "see-LOH-fo-no",
+      "sentence": "Xilófono empieza con X.",
+      "fact": "Un xilófono suena cuando golpeas sus barras de colores.",
+      "image": "xylophone",
+      "action": "Pip toca un xilófono de arcoíris.",
+      "pip": {
+        "x": 54,
+        "y": 42,
+        "scale": 1,
+        "rotate": -6
+      }
+    },
+    {
+      "letter": "Y",
+      "uppercase": "Y",
+      "lowercase": "y",
+      "word": "Yo-yo",
+      "pronunciation": "YO-yo",
+      "sentence": "Yo-yo empieza con Y.",
+      "fact": "Un yo-yo baja por un hilo y puede volver a subir.",
+      "image": "yoyo",
+      "action": "Pip hace bailar un yo-yo.",
+      "pip": {
+        "x": 48,
+        "y": 36,
+        "scale": 0.95,
+        "rotate": 12
+      }
+    },
+    {
+      "letter": "Z",
+      "uppercase": "Z",
+      "lowercase": "z",
+      "word": "Zorro",
+      "pronunciation": "SO-rro",
+      "sentence": "Zorro empieza con Z.",
+      "fact": "Un zorro es astuto, ligero y tiene una cola esponjosa.",
+      "image": "zebra",
+      "action": "Pip se reconoce en otro zorrito.",
+      "pip": {
+        "x": 56,
+        "y": 44,
+        "scale": 1,
+        "rotate": 4
+      }
+    }
+  ],
+  "activities": {
+    "tracing_title": "Traza con Pip",
+    "tracing_intro": "Empieza arriba. Ve despacio. Pip no tiene prisa.",
+    "tracing_upper_label": "Letras mayúsculas",
+    "tracing_lower_label": "Letras minúsculas",
+    "review_title": "El alfabeto de Pip",
+    "review_intro": "Señala cada letra. ¿Puedes decir su sonido?",
+    "review_prompt": "Personas mayores: nombren una letra. Pequeños: ¡encuéntrenla!",
+    "matching_title": "Empareja con Pip",
+    "matching_intro": "Dibuja una línea desde cada letra hasta su dibujo.",
+    "match_pip_title": "Empareja a Pip",
+    "match_pip_intro": "¡Pip está ocupado! Dibuja una línea desde cada letra hasta la imagen de Pip.",
+    "find_title": "Encuentra la letra",
+    "find_intro": "Rodea la letra que Pip busca.",
+    "sequence_title": "¿Qué sigue?",
+    "sequence_intro": "Di las letras en voz alta. Escribe la que falta en la casilla vacía.",
+    "odd_title": "Elige la imagen de Pip",
+    "odd_intro": "Rodea la imagen que pertenece a cada letra.",
+    "write_title": "Escribe con Pip",
+    "write_intro": "Traza cada letra y luego escríbela otra vez en las casillas vacías.",
+    "bonus_title": "Juega con Pip",
+    "bonus_intro": "Dibuja a Pip aquí. Traza tu letra favorita. ¡Inventa una palabra nueva!"
+  },
+  "certificate": {
+    "kicker": "Las aventuras del alfabeto de Pip",
+    "title": "¡Aprendí el alfabeto!",
+    "body": "Se certifica que un valiente explorador de letras terminó todo el alfabeto con Pip el zorrito.",
+    "name_label": "Nombre del explorador",
+    "date_label": "Fecha",
+    "stamp": "Sello de alegría de Pip",
+    "closing": "Fin — por ahora. Mañana hay más palabras por descubrir."
+  }
+}

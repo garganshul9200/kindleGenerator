@@ -1,0 +1,534 @@
+{
+  "meta": {
+    "language": "French",
+    "language_code": "fr",
+    "script": "latin",
+    "title": "L’alphabet de Pip",
+    "subtitle": "Une aventure de lettres",
+    "series": "Les aventures de l’alphabet de Pip",
+    "mascot": "Pip",
+    "tagline": "Pars à la découverte de chaque lettre avec Pip le petit renard.",
+    "direction": "ltr",
+    "age": "3 à 7 ans"
+  },
+  "back": {
+    "headline": "Une aventure de lettres avec Pip",
+    "blurb": "De A à Z, Pip le petit renard grimpe, joue et découvre un nouveau mot à chaque page. Suivez les grandes lettres du doigt, trouvez Pip dans les images et partagez une petite info — idéal au coucher, en voyage et pour les premiers lecteurs.",
+    "bullets": [
+      "26 planches de lettres illustrées",
+      "Activités de tracé, révision et association",
+      "Un certificat pour fêter l’alphabet"
+    ],
+    "closing": "Ouvre la couverture. Rencontre Pip. Commence l’aventure."
+  },
+  "front": {
+    "copyright_line": "Un abécédaire illustré pour les petits lecteurs curieux.",
+    "belongs_title": "Ce livre appartient à",
+    "belongs_name_label": "Prénom",
+    "belongs_age_label": "Âge",
+    "belongs_note": "Pip est ravi que tu sois là.",
+    "meet_title": "Voici Pip",
+    "meet_body": "Voici Pip, un petit renard à la grande curiosité. Pip grimpe sur les lettres, croque des pommes, fait voler des cerfs-volants et pose cent questions. À chaque page, Pip découvre quelque chose — et toi aussi.",
+    "meet_prompt": "Peux-tu trouver Pip sur chaque lettre ?",
+    "how_title": "Comment lire ce livre",
+    "how_intro": "Lisez-le ensemble. Montrez, jouez, faites une pause. Il n’y a pas de mauvaise façon.",
+    "how_steps": [
+      {
+        "n": "1",
+        "title": "Regarde",
+        "text": "Montre la grande lettre. Suis-la du doigt."
+      },
+      {
+        "n": "2",
+        "title": "Dis",
+        "text": "Dis le son, puis dis le mot à voix haute."
+      },
+      {
+        "n": "3",
+        "title": "Trouve Pip",
+        "text": "Où se cache Pip cette fois ? Que fait-il ?"
+      },
+      {
+        "n": "4",
+        "title": "Découvre",
+        "text": "Regarde la grande image. Parlez ensemble de la petite info."
+      }
+    ]
+  },
+  "letters": [
+    {
+      "letter": "A",
+      "uppercase": "A",
+      "lowercase": "a",
+      "word": "Avion",
+      "pronunciation": "ah-VYOHN",
+      "sentence": "Avion commence par A.",
+      "fact": "Un avion vole dans le ciel et emmène les gens très loin.",
+      "image": "kite",
+      "action": "Pip lève les yeux vers un avion dans le ciel.",
+      "pip": {
+        "x": 52,
+        "y": 46,
+        "scale": 1,
+        "rotate": -8
+      }
+    },
+    {
+      "letter": "B",
+      "uppercase": "B",
+      "lowercase": "b",
+      "word": "Ballon",
+      "pronunciation": "bah-LOHN",
+      "sentence": "Ballon commence par B.",
+      "fact": "Un ballon est rond : il rebondit, roule et s’envole.",
+      "image": "ball",
+      "action": "Pip fait rebondir un grand ballon.",
+      "pip": {
+        "x": 62,
+        "y": 34,
+        "scale": 0.95,
+        "rotate": 10
+      }
+    },
+    {
+      "letter": "C",
+      "uppercase": "C",
+      "lowercase": "c",
+      "word": "Chat",
+      "pronunciation": "SHAH",
+      "sentence": "Chat commence par C.",
+      "fact": "Un chat ronronne quand il se sent bien.",
+      "image": "cat",
+      "action": "Pip joue avec un petit chat tout doux.",
+      "pip": {
+        "x": 58,
+        "y": 50,
+        "scale": 1,
+        "rotate": 6
+      }
+    },
+    {
+      "letter": "D",
+      "uppercase": "D",
+      "lowercase": "d",
+      "word": "Dauphin",
+      "pronunciation": "doh-FEHN",
+      "sentence": "Dauphin commence par D.",
+      "fact": "Un dauphin est un animal marin très intelligent qui aime sauter.",
+      "image": "whale",
+      "action": "Pip nage en pensée avec un dauphin.",
+      "pip": {
+        "x": 60,
+        "y": 36,
+        "scale": 0.95,
+        "rotate": -4
+      }
+    },
+    {
+      "letter": "E",
+      "uppercase": "E",
+      "lowercase": "e",
+      "word": "Éléphant",
+      "pronunciation": "ay-lay-FAHN",
+      "sentence": "Éléphant commence par E.",
+      "fact": "Un éléphant se sert de sa trompe pour boire, saluer et se doucher.",
+      "image": "goat",
+      "action": "Pip rencontre un immense ami.",
+      "pip": {
+        "x": 56,
+        "y": 30,
+        "scale": 0.92,
+        "rotate": 8
+      }
+    },
+    {
+      "letter": "F",
+      "uppercase": "F",
+      "lowercase": "f",
+      "word": "Fraise",
+      "pronunciation": "FREZ",
+      "sentence": "Fraise commence par F.",
+      "fact": "La fraise est un fruit rouge, sucré, parsemé de petits grains.",
+      "image": "apple",
+      "action": "Pip croque une fraise bien mûre.",
+      "pip": {
+        "x": 48,
+        "y": 28,
+        "scale": 0.9,
+        "rotate": 12
+      }
+    },
+    {
+      "letter": "G",
+      "uppercase": "G",
+      "lowercase": "g",
+      "word": "Gâteau",
+      "pronunciation": "gah-TOH",
+      "sentence": "Gâteau commence par G.",
+      "fact": "Un gâteau se partage — et il goûte encore mieux à plusieurs.",
+      "image": "quilt",
+      "action": "Pip souffle sur un petit gâteau.",
+      "pip": {
+        "x": 60,
+        "y": 48,
+        "scale": 1,
+        "rotate": -6
+      }
+    },
+    {
+      "letter": "H",
+      "uppercase": "H",
+      "lowercase": "h",
+      "word": "Hibou",
+      "pronunciation": "ee-BOO",
+      "sentence": "Hibou commence par H.",
+      "fact": "Un hibou voit très bien la nuit et tourne beaucoup la tête.",
+      "image": "owl",
+      "action": "Pip s’assoit près d’un hibou rond.",
+      "pip": {
+        "x": 50,
+        "y": 32,
+        "scale": 0.92,
+        "rotate": 4
+      }
+    },
+    {
+      "letter": "I",
+      "uppercase": "I",
+      "lowercase": "i",
+      "word": "Île",
+      "pronunciation": "EEL",
+      "sentence": "Île commence par I.",
+      "fact": "Une île est un morceau de terre entouré d’eau.",
+      "image": "igloo",
+      "action": "Pip explore une petite île calme.",
+      "pip": {
+        "x": 28,
+        "y": 42,
+        "scale": 0.95,
+        "rotate": -10
+      }
+    },
+    {
+      "letter": "J",
+      "uppercase": "J",
+      "lowercase": "j",
+      "word": "Jardin",
+      "pronunciation": "zhar-DEHN",
+      "sentence": "Jardin commence par J.",
+      "fact": "Un jardin est un endroit où l’on fait pousser fleurs, fruits et légumes.",
+      "image": "leaf",
+      "action": "Pip se promène dans un jardin fleuri.",
+      "pip": {
+        "x": 48,
+        "y": 38,
+        "scale": 0.95,
+        "rotate": 8
+      }
+    },
+    {
+      "letter": "K",
+      "uppercase": "K",
+      "lowercase": "k",
+      "word": "Koala",
+      "pronunciation": "ko-ah-LAH",
+      "sentence": "Koala commence par K.",
+      "fact": "Le koala vit en Australie et passe de longues heures dans les eucalyptus.",
+      "image": "tree",
+      "action": "Pip salue un koala dans un arbre.",
+      "pip": {
+        "x": 58,
+        "y": 44,
+        "scale": 1,
+        "rotate": -12
+      }
+    },
+    {
+      "letter": "L",
+      "uppercase": "L",
+      "lowercase": "l",
+      "word": "Lune",
+      "pronunciation": "LUEN",
+      "sentence": "Lune commence par L.",
+      "fact": "La lune éclaire la nuit en renvoyant la lumière du soleil.",
+      "image": "moon",
+      "action": "Pip admire la grande lune dorée.",
+      "pip": {
+        "x": 42,
+        "y": 30,
+        "scale": 0.9,
+        "rotate": 6
+      }
+    },
+    {
+      "letter": "M",
+      "uppercase": "M",
+      "lowercase": "m",
+      "word": "Maison",
+      "pronunciation": "meh-ZOHN",
+      "sentence": "Maison commence par M.",
+      "fact": "Une maison est l’endroit où l’on se sent en sécurité.",
+      "image": "igloo",
+      "action": "Pip rentre dans une maison accueillante.",
+      "pip": {
+        "x": 50,
+        "y": 40,
+        "scale": 0.95,
+        "rotate": 0
+      }
+    },
+    {
+      "letter": "N",
+      "uppercase": "N",
+      "lowercase": "n",
+      "word": "Nuage",
+      "pronunciation": "noo-AHZH",
+      "sentence": "Nuage commence par N.",
+      "fact": "Un nuage est fait de toutes petites gouttes d’eau.",
+      "image": "rainbow",
+      "action": "Pip regarde les nuages changer de forme.",
+      "pip": {
+        "x": 58,
+        "y": 36,
+        "scale": 0.95,
+        "rotate": 8
+      }
+    },
+    {
+      "letter": "O",
+      "uppercase": "O",
+      "lowercase": "o",
+      "word": "Oiseau",
+      "pronunciation": "wah-ZOH",
+      "sentence": "Oiseau commence par O.",
+      "fact": "Un oiseau a des plumes et la plupart des oiseaux savent voler.",
+      "image": "owl",
+      "action": "Pip écoute un oiseau chanter.",
+      "pip": {
+        "x": 62,
+        "y": 48,
+        "scale": 1,
+        "rotate": 6
+      }
+    },
+    {
+      "letter": "P",
+      "uppercase": "P",
+      "lowercase": "p",
+      "word": "Poisson",
+      "pronunciation": "pwah-SOHN",
+      "sentence": "Poisson commence par P.",
+      "fact": "Un poisson respire dans l’eau grâce à ses branchies.",
+      "image": "fish",
+      "action": "Pip observe un poisson dans l’étang.",
+      "pip": {
+        "x": 58,
+        "y": 32,
+        "scale": 0.92,
+        "rotate": -6
+      }
+    },
+    {
+      "letter": "Q",
+      "uppercase": "Q",
+      "lowercase": "q",
+      "word": "Quille",
+      "pronunciation": "KEE-yuh",
+      "sentence": "Quille commence par Q.",
+      "fact": "Une quille est une pièce de jeu que l’on fait tomber avec une boule.",
+      "image": "ball",
+      "action": "Pip vise une quille avec une boule.",
+      "pip": {
+        "x": 60,
+        "y": 50,
+        "scale": 1,
+        "rotate": 4
+      }
+    },
+    {
+      "letter": "R",
+      "uppercase": "R",
+      "lowercase": "r",
+      "word": "Renard",
+      "pronunciation": "ruh-NAR",
+      "sentence": "Renard commence par R.",
+      "fact": "Un renard a une belle queue touffue et des oreilles pointues.",
+      "image": "zebra",
+      "action": "Pip rencontre un autre petit renard.",
+      "pip": {
+        "x": 56,
+        "y": 38,
+        "scale": 0.95,
+        "rotate": 10
+      }
+    },
+    {
+      "letter": "S",
+      "uppercase": "S",
+      "lowercase": "s",
+      "word": "Soleil",
+      "pronunciation": "so-LAY",
+      "sentence": "Soleil commence par S.",
+      "fact": "Le soleil est une étoile. Sa lumière fait pousser les plantes.",
+      "image": "sun",
+      "action": "Pip se réchauffe sous un soleil souriant.",
+      "pip": {
+        "x": 58,
+        "y": 42,
+        "scale": 1,
+        "rotate": -8
+      }
+    },
+    {
+      "letter": "T",
+      "uppercase": "T",
+      "lowercase": "t",
+      "word": "Train",
+      "pronunciation": "TREHN",
+      "sentence": "Train commence par T.",
+      "fact": "Un train roule sur des rails et peut être très long.",
+      "image": "tree",
+      "action": "Pip attend un train coloré.",
+      "pip": {
+        "x": 50,
+        "y": 30,
+        "scale": 0.9,
+        "rotate": 0
+      }
+    },
+    {
+      "letter": "U",
+      "uppercase": "U",
+      "lowercase": "u",
+      "word": "Ukulélé",
+      "pronunciation": "oo-koo-lay-LAY",
+      "sentence": "Ukulélé commence par U.",
+      "fact": "Le ukulélé est un petit instrument à cordes, joyeux et léger.",
+      "image": "violin",
+      "action": "Pip pince les cordes d’un ukulélé.",
+      "pip": {
+        "x": 55,
+        "y": 34,
+        "scale": 0.95,
+        "rotate": 6
+      }
+    },
+    {
+      "letter": "V",
+      "uppercase": "V",
+      "lowercase": "v",
+      "word": "Voiture",
+      "pronunciation": "vwah-TUER",
+      "sentence": "Voiture commence par V.",
+      "fact": "Une voiture roule sur la route pour nous emmener quelque part.",
+      "image": "ball",
+      "action": "Pip fait un voyage en imagination.",
+      "pip": {
+        "x": 50,
+        "y": 46,
+        "scale": 1,
+        "rotate": -4
+      }
+    },
+    {
+      "letter": "W",
+      "uppercase": "W",
+      "lowercase": "w",
+      "word": "Wagon",
+      "pronunciation": "vah-GOHN",
+      "sentence": "Wagon commence par W.",
+      "fact": "Un wagon est une voiture de train qui transporte des gens ou des choses.",
+      "image": "quilt",
+      "action": "Pip grimpe dans un wagon coloré.",
+      "pip": {
+        "x": 52,
+        "y": 38,
+        "scale": 0.95,
+        "rotate": 8
+      }
+    },
+    {
+      "letter": "X",
+      "uppercase": "X",
+      "lowercase": "x",
+      "word": "Xylophone",
+      "pronunciation": "gzee-lo-FON",
+      "sentence": "Xylophone commence par X.",
+      "fact": "Un xylophone chante quand on tape sur ses lames colorées.",
+      "image": "xylophone",
+      "action": "Pip joue du xylophone, une note après l’autre.",
+      "pip": {
+        "x": 54,
+        "y": 42,
+        "scale": 1,
+        "rotate": -6
+      }
+    },
+    {
+      "letter": "Y",
+      "uppercase": "Y",
+      "lowercase": "y",
+      "word": "Yacht",
+      "pronunciation": "YOT",
+      "sentence": "Yacht commence par Y.",
+      "fact": "Un yacht est un bateau élégant qui glisse sur la mer.",
+      "image": "whale",
+      "action": "Pip part en mer sur un petit yacht.",
+      "pip": {
+        "x": 48,
+        "y": 36,
+        "scale": 0.95,
+        "rotate": 12
+      }
+    },
+    {
+      "letter": "Z",
+      "uppercase": "Z",
+      "lowercase": "z",
+      "word": "Zèbre",
+      "pronunciation": "ZEH-bruh",
+      "sentence": "Zèbre commence par Z.",
+      "fact": "Les rayures de chaque zèbre sont uniques, comme une empreinte.",
+      "image": "zebra",
+      "action": "Pip se tient fièrement à côté d’un zèbre.",
+      "pip": {
+        "x": 56,
+        "y": 44,
+        "scale": 1,
+        "rotate": 4
+      }
+    }
+  ],
+  "activities": {
+    "tracing_title": "Trace avec Pip",
+    "tracing_intro": "Commence en haut. Va doucement. Pip n’est pas pressé.",
+    "tracing_upper_label": "Lettres majuscules",
+    "tracing_lower_label": "Lettres minuscules",
+    "review_title": "L’alphabet de Pip",
+    "review_intro": "Montre chaque lettre. Peux-tu dire son son ?",
+    "review_prompt": "Adultes : nommez une lettre. Petits : trouvez-la !",
+    "matching_title": "Associe avec Pip",
+    "matching_intro": "Trace un trait de chaque lettre vers son image.",
+    "match_pip_title": "Associe Pip",
+    "match_pip_intro": "Pip est occupé ! Relie chaque lettre à l’image de Pip.",
+    "find_title": "Trouve la lettre",
+    "find_intro": "Entoure la lettre que Pip cherche.",
+    "sequence_title": "Quelle lettre vient ensuite ?",
+    "sequence_intro": "Dis les lettres à voix haute. Écris celle qui manque dans la case vide.",
+    "odd_title": "Choisis l’image de Pip",
+    "odd_intro": "Entoure l’image qui appartient à chaque lettre.",
+    "write_title": "Écris avec Pip",
+    "write_intro": "Trace chaque lettre, puis écris-la encore dans les cases vides.",
+    "bonus_title": "Joue avec Pip",
+    "bonus_intro": "Dessine Pip ici. Trace ta lettre préférée. Invente un tout nouveau mot !"
+  },
+  "certificate": {
+    "kicker": "Les aventures de l’alphabet de Pip",
+    "title": "J’ai appris mon alphabet !",
+    "body": "Ceci certifie qu’un vaillant explorateur de lettres a terminé tout l’alphabet avec Pip le petit renard.",
+    "name_label": "Prénom de l’explorateur",
+    "date_label": "Date",
+    "stamp": "Le tampon de joie de Pip",
+    "closing": "Fin — pour le moment. Demain, d’autres mots nous attendent."
+  }
+}

@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>L’alphabet de Pip — cover</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../../assets/fonts/book/nunito-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  font-display: block;
+  src: url("../../assets/fonts/book/nunito-latin-600-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url("../../assets/fonts/book/nunito-latin-700-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 800;
+  font-display: block;
+  src: url("../../assets/fonts/book/nunito-latin-800-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../../assets/fonts/book/nunito-latin-ext-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url("../../assets/fonts/book/nunito-latin-ext-700-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Fredoka";
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url("../../assets/fonts/book/fredoka-latin-500-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Fredoka";
+  font-style: normal;
+  font-weight: 600;
+  font-display: block;
+  src: url("../../assets/fonts/book/fredoka-latin-600-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Fredoka";
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url("../../assets/fonts/book/fredoka-latin-700-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Fredoka";
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url("../../assets/fonts/book/fredoka-latin-ext-500-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Fredoka";
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url("../../assets/fonts/book/fredoka-latin-ext-700-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Baloo 2";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../../assets/fonts/book/baloo-2-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Baloo 2";
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url("../../assets/fonts/book/baloo-2-latin-700-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Baloo 2";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../../assets/fonts/book/baloo-2-devanagari-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Baloo 2";
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url("../../assets/fonts/book/baloo-2-devanagari-700-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Baloo Paaji 2";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../../assets/fonts/book/baloo-paaji-2-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Baloo Paaji 2";
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url("../../assets/fonts/book/baloo-paaji-2-latin-700-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Baloo Paaji 2";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../../assets/fonts/book/baloo-paaji-2-gurmukhi-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Baloo Paaji 2";
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url("../../assets/fonts/book/baloo-paaji-2-gurmukhi-700-normal.woff2") format("woff2");
+}
+/* Pip's Alphabet — print-first stylesheet
+   Trim 8.5in × 8.5in + 0.125in bleed = 8.75in PDF page
+   Do not add crop marks. KDP wants bleed to the page edge.
+*/
+
+:root {
+  --page: 8.75in;
+  --bleed: 0.125in;
+  --safe: 0.375in;          /* bleed + 0.25in trim margin */
+  --gutter: 0.62in;         /* binding-side inset from PDF edge */
+  --outer: 0.42in;
+  --cream: #f6efe3;
+  --cream-deep: #efe4d2;
+  --ink: #3d342c;
+  --ink-soft: #6a5e52;
+  --paper-line: #e2d4bf;
+  --white: #fffdf8;
+  --shadow: rgba(61, 52, 44, 0.12);
+}
+
+/* Theme tokens — assigned per spread */
+.theme-coral { --bg: #f8eee6; --accent: #d45d4a; --soft: #f0d0c4; --deep: #a33f32; }
+.theme-honey { --bg: #f7f1de; --accent: #d4a017; --soft: #f0e2b0; --deep: #8a6a12; }
+.theme-sage  { --bg: #eef4ea; --accent: #5d9a6e; --soft: #d3e6d4; --deep: #3d6a48; }
+.theme-sky   { --bg: #eef4f8; --accent: #4a8fbf; --soft: #d0e3f0; --deep: #2f6286; }
+.theme-plum  { --bg: #f4eef5; --accent: #8b6bb0; --soft: #e2d5ee; --deep: #5c4478; }
+.theme-peach { --bg: #f8efe6; --accent: #e0895c; --soft: #f3d8c4; --deep: #9a5430; }
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  color: var(--ink);
+  background: var(--cream);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  color-adjust: exact;
+}
+
+body {
+  font-family: "Nunito", "Baloo 2", "Baloo Paaji 2", sans-serif;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.script-devanagari {
+  font-family: "Baloo 2", "Nunito", sans-serif;
+}
+.script-gurmukhi {
+  font-family: "Baloo Paaji 2", "Nunito", sans-serif;
+}
+
+.display {
+  font-family: "Fredoka", "Baloo 2", "Baloo Paaji 2", sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.script-devanagari .display,
+.script-devanagari .giant-letter {
+  font-family: "Baloo 2", sans-serif;
+}
+.script-gurmukhi .display,
+.script-gurmukhi .giant-letter {
+  font-family: "Baloo Paaji 2", sans-serif;
+}
+
+@page {
+  size: 8.75in 8.75in;
+  margin: 0;
+}
+
+/* ---------- Screen preview ---------- */
+@media screen {
+  body {
+    background: #cfc3ae;
+    padding: 32px 0 80px;
+  }
+  .page {
+    margin: 0 auto 28px;
+    box-shadow:
+      0 18px 50px rgba(61, 52, 44, 0.18),
+      0 0 0 1px rgba(61, 52, 44, 0.06);
+  }
+}
+
+@media print {
+  body { background: none; padding: 0; }
+  .page {
+    margin: 0;
+    box-shadow: none;
+    page-break-after: always;
+    break-after: page;
+  }
+}
+
+/* ---------- Page shell ---------- */
+.page {
+  width: var(--page);
+  height: var(--page);
+  position: relative;
+  overflow: hidden;
+  background: var(--cream);
+}
+
+.page .bleed-wash {
+  position: absolute;
+  inset: 0;
+  background: var(--bg, var(--cream));
+}
+
+.safe {
+  position: absolute;
+  top: var(--safe);
+  bottom: 0.38in;
+  display: flex;
+  flex-direction: column;
+}
+.page.recto .safe { left: var(--gutter); right: var(--outer); }
+.page.verso .safe { left: var(--outer); right: var(--gutter); }
+
+/* Full-bleed pages (cover) ignore the safe column */
+.page.cover .safe,
+.page.scene-full .safe {
+  inset: 0;
+}
+
+.folio {
+  position: absolute;
+  bottom: 0.22in;
+  font-size: 9pt;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  z-index: 5;
+}
+.page.recto .folio { right: 0.38in; }
+.page.verso .folio { left: 0.38in; }
+.page.cover .folio,
+.page.unnumbered .folio { display: none; }
+
+.paw {
+  width: 0.16in;
+  height: 0.16in;
+  display: inline-block;
+  vertical-align: -0.02in;
+  margin-right: 0.08in;
+  opacity: 0.7;
+}
+
+/* ---------- Cover / title ---------- */
+.cover-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+}
+
+.cover-scrim {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 2.55in;
+  background: linear-gradient(to bottom, rgba(246, 239, 227, 0.94) 0%, rgba(246, 239, 227, 0.72) 58%, rgba(246, 239, 227, 0) 100%);
+}
+
+.cover-band {
+  position: absolute;
+  left: 0.55in;
+  right: 0.55in;
+  top: 0.42in;
+  text-align: center;
+  z-index: 3;
+}
+.page.recto.cover .cover-band { padding-left: 0.12in; }
+.page.verso.cover .cover-band { padding-right: 0.12in; }
+
+.kicker {
+  font-size: 10pt;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--deep, #a33f32);
+  margin: 0 0 0.08in;
+}
+
+.cover-title {
+  font-size: 46pt;
+  line-height: 0.92;
+  margin: 0;
+  color: #c94b3a;
+}
+
+.cover-sub {
+  font-size: 16pt;
+  font-weight: 650;
+  margin: 0.12in 0 0;
+  color: var(--ink);
+}
+
+.cover-age {
+  display: inline-block;
+  margin-top: 0.16in;
+  padding: 0.06in 0.2in;
+  border-radius: 999px;
+  background: rgba(255, 253, 248, 0.85);
+  font-size: 10pt;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--deep, #a33f32);
+}
+
+.cover-tag {
+  position: absolute;
+  left: 0.55in;
+  right: 0.55in;
+  bottom: 0.42in;
+  text-align: center;
+  z-index: 3;
+  font-size: 13pt;
+  font-weight: 700;
+  color: var(--ink);
+  text-shadow: 0 1px 0 rgba(255, 253, 248, 0.7);
+}
+
+/* ---------- Quiet interior pages ---------- */
+.page-heading {
+  font-size: 32pt;
+  line-height: 1.05;
+  margin: 0 0 0.18in;
+  color: var(--accent, #d45d4a);
+}
+
+.lede {
+  font-size: 14.5pt;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 0.2in;
+}
+
+.body-copy {
+  font-size: 13.5pt;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.imprint {
+  margin-top: auto;
+  font-size: 10pt;
+  font-weight: 600;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+.rule {
+  width: 1.1in;
+  height: 0.045in;
+  background: var(--accent, #d45d4a);
+  border: 0;
+  margin: 0 0 0.22in;
+  border-radius: 99px;
+}
+
+/* Belongs to */
+.belongs-card {
+  margin-top: 0.35in;
+  background: var(--white);
+  border-radius: 0.28in;
+  padding: 0.45in 0.4in 0.4in;
+  box-shadow: 0 0.08in 0.2in var(--shadow);
+  border: 0.02in solid var(--soft, var(--paper-line));
+}
+.field {
+  margin: 0.28in 0 0;
+}
+.field label {
+  display: block;
+  font-size: 10pt;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 0.1in;
+}
+.line {
+  border: 0;
+  border-bottom: 0.03in solid var(--paper-line);
+  height: 0.42in;
+}
+
+.pip-spot {
+  width: 2.35in;
+  height: 2.35in;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 0.07in solid #fff;
+  box-shadow: 0 0.1in 0.22in var(--shadow);
+}
+
+.meet-row {
+  display: flex;
+  gap: 0.28in;
+  align-items: center;
+  margin-top: 0.15in;
+  flex: 1;
+}
+
+/* How to */
+.steps {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.22in;
+  margin-top: 0.2in;
+  flex: 1;
+}
+.step {
+  background: var(--white);
+  border-radius: 0.22in;
+  padding: 0.22in 0.2in 0.2in;
+  border: 0.02in solid var(--soft, var(--paper-line));
+}
+.step-n {
+  width: 0.38in;
+  height: 0.38in;
+  border-radius: 50%;
+  background: var(--accent, #d45d4a);
+  color: #fff;
+  font-family: "Fredoka", "Baloo 2", "Baloo Paaji 2", sans-serif;
+  font-weight: 600;
+  font-size: 13pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.1in;
+}
+.step h3 {
+  margin: 0 0 0.06in;
+  font-size: 16pt;
+  color: var(--ink);
+}
+.step p {
+  margin: 0;
+  font-size: 11.5pt;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+/* ---------- Letter left (playground) ---------- */
+.letter-stage {
+  position: relative;
+  flex: 1;
+  min-height: 4.6in;
+}
+
+.letter-halo {
+  position: absolute;
+  width: 5.1in;
+  height: 5.1in;
+  left: 50%;
+  top: 46%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--soft) 0%, transparent 68%);
+}
+
+.giant-letter {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: flex-end;
+  gap: 0.08in;
+  line-height: 0.8;
+  z-index: 2;
+  user-select: none;
+}
+
+.giant-letter .upper {
+  font-size: 4.05in;
+  font-weight: 650;
+  color: var(--white);
+  -webkit-text-stroke: 0.11in var(--accent);
+  paint-order: stroke fill;
+  text-shadow: 0.04in 0.055in 0 var(--soft);
+}
+
+.giant-letter .lower {
+  font-size: 1.55in;
+  font-weight: 550;
+  color: var(--accent);
+  margin-bottom: 0.28in;
+}
+
+.script-devanagari .giant-letter .upper,
+.script-gurmukhi .giant-letter .upper {
+  font-size: 3.35in;
+  -webkit-text-stroke: 0.08in var(--accent);
+}
+
+.pip-sticker {
+  position: absolute;
+  width: 1.55in;
+  height: 1.55in;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 0.055in solid #fff;
+  box-shadow: 0 0.08in 0.18in var(--shadow);
+  z-index: 3;
+}
+
+.letter-meta {
+  text-align: center;
+  padding-bottom: 0.08in;
+}
+
+.word-xl {
+  font-size: 28pt;
+  margin: 0;
+  color: var(--deep, var(--ink));
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.script-devanagari .word-xl,
+.script-gurmukhi .word-xl {
+  text-transform: none;
+  font-size: 26pt;
+}
+
+.pron {
+  margin: 0.04in 0 0.1in;
+  font-size: 11pt;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.sentence {
+  margin: 0;
+  font-size: 14pt;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* ---------- Letter right (scene) ---------- */
+.scene-frame {
+  flex: 1;
+  border-radius: 0.28in;
+  overflow: hidden;
+  background: var(--soft);
+  box-shadow: 0 0.1in 0.22in var(--shadow);
+  border: 0.045in solid #fff;
+  min-height: 5.15in;
+}
+.scene-frame img,
+.scene-frame .fallback-scene {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.fallback-scene {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background:
+    radial-gradient(circle at 30% 30%, var(--soft), var(--bg));
+  height: 100%;
+}
+.fallback-scene .big {
+  font-size: 3.2in;
+  color: var(--accent);
+  opacity: 0.35;
+  font-family: "Fredoka", "Baloo 2", "Baloo Paaji 2", sans-serif;
+}
+.fallback-scene img {
+  position: absolute;
+  width: 2.1in;
+  height: 2.1in;
+  object-fit: cover;
+  border-radius: 50%;
+  bottom: 0.35in;
+  right: 0.4in;
+  border: 0.06in solid #fff;
+}
+
+.scene-caption {
+  padding: 0.16in 0.06in 0.02in;
+  text-align: center;
+}
+
+.scene-word {
+  font-size: 26pt;
+  margin: 0;
+  color: var(--deep, var(--ink));
+}
+
+.fact {
+  margin: 0.04in 0 0.1in;
+  font-size: 12.5pt;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
+.mini-trace {
+  display: flex;
+  justify-content: center;
+  gap: 0.18in;
+  align-items: center;
+}
+.trace {
+  font-family: "Fredoka", "Baloo 2", "Baloo Paaji 2", sans-serif;
+  font-size: 28pt;
+  font-weight: 550;
+  color: transparent;
+  -webkit-text-stroke: 1.6pt var(--accent);
+  paint-order: stroke fill;
+  letter-spacing: 0.08em;
+  opacity: 0.55;
+}
+.trace-hint {
+  font-size: 8.5pt;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-right: 0.08in;
+}
+
+/* ---------- Tracing grids ---------- */
+.trace-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.16in;
+  flex: 1;
+  align-content: start;
+  margin-top: 0.12in;
+}
+.trace-cell {
+  height: 1.35in;
+  border-radius: 0.16in;
+  background: var(--white);
+  border: 0.02in dashed var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.trace-cell span {
+  font-family: "Fredoka", "Baloo 2", "Baloo Paaji 2", sans-serif;
+  font-size: 42pt;
+  font-weight: 550;
+  color: transparent;
+  -webkit-text-stroke: 2pt var(--accent);
+  opacity: 0.7;
+}
+
+/* ---------- Review ---------- */
+.alpha-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.12in;
+  flex: 1;
+  margin-top: 0.15in;
+}
+.alpha-chip {
+  background: var(--white);
+  border-radius: 0.16in;
+  padding: 0.1in 0.06in 0.12in;
+  text-align: center;
+  border: 0.02in solid var(--soft, var(--paper-line));
+}
+.alpha-chip .ch {
+  display: block;
+  font-family: "Fredoka", "Baloo 2", "Baloo Paaji 2", sans-serif;
+  font-size: 22pt;
+  font-weight: 650;
+  color: var(--accent, #d45d4a);
+  line-height: 1;
+}
+.alpha-chip .wd {
+  display: block;
+  font-size: 8.5pt;
+  font-weight: 800;
+  color: var(--ink-soft);
+  margin-top: 0.04in;
+  line-height: 1.15;
+}
+.alpha-grid.dense {
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.08in;
+}
+.alpha-grid.dense .alpha-chip { padding: 0.06in 0.04in 0.08in; }
+.alpha-grid.dense .ch { font-size: 16pt; }
+.alpha-grid.dense .wd { font-size: 7.5pt; }
+
+/* ---------- Matching ---------- */
+.match {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 0.28in;
+  flex: 1;
+  margin-top: 0.12in;
+}
+.match-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.16in;
+}
+.match-letter, .match-pic {
+  display: flex;
+  align-items: center;
+  gap: 0.14in;
+  background: var(--white);
+  border-radius: 0.18in;
+  padding: 0.08in 0.12in;
+  min-height: 0.95in;
+  border: 0.02in solid var(--soft, var(--paper-line));
+}
+.bubble {
+  width: 0.62in;
+  height: 0.62in;
+  border-radius: 50%;
+  background: var(--accent, #d45d4a);
+  color: #fff;
+  font-family: "Fredoka", "Baloo 2", "Baloo Paaji 2", sans-serif;
+  font-size: 22pt;
+  font-weight: 650;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.match-pic img {
+  width: 0.82in;
+  height: 0.82in;
+  object-fit: cover;
+  border-radius: 0.12in;
+}
+.dot-line {
+  flex: 1;
+  border-bottom: 0.03in dotted var(--paper-line);
+  height: 0;
+}
+
+/* ---------- Certificate ---------- */
+.cert-frame {
+  flex: 1;
+  border-radius: 0.3in;
+  border: 0.08in solid var(--accent, #d45d4a);
+  background: var(--white);
+  padding: 0.32in 0.34in 0.28in;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+.cert-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0.12in;
+  border-radius: 0.2in;
+  border: 0.02in solid var(--soft, var(--paper-line));
+  pointer-events: none;
+}
+.cert-frame .kicker { margin-top: 0.08in; }
+.cert-title {
+  font-size: 28pt;
+  margin: 0.08in 0 0.12in;
+  color: var(--accent, #d45d4a);
+  line-height: 1.05;
+}
+.cert-body {
+  font-size: 12.5pt;
+  font-weight: 700;
+  color: var(--ink-soft);
+  max-width: 5.6in;
+  margin: 0 0 0.18in;
+}
+.cert-photo {
+  width: 2.05in;
+  height: 2.05in;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 0.06in solid #fff;
+  box-shadow: 0 0.08in 0.18in var(--shadow);
+  margin: 0.06in 0 0.16in;
+}
+.cert-fields {
+  width: 100%;
+  max-width: 5.2in;
+  text-align: left;
+}
+.stamp {
+  margin-top: 0.16in;
+  font-size: 9pt;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.closing-note {
+  margin-top: auto;
+  text-align: center;
+  font-size: 14pt;
+  font-weight: 700;
+}
+
+img { max-width: 100%; }
+h1, h2, h3, p { font-weight: 700; }
+
+</style>
+</head>
+<body class="script-latin">
+<section class="page recto cover theme-coral unnumbered" data-page="1">
+<div class="bleed-wash"></div>
+<img class="cover-art" src="../../assets/illustrations/cover-art.png" alt="">
+<div class="cover-scrim"></div>
+<div class="cover-band">
+  <p class="kicker">Les aventures de l’alphabet de Pip</p>
+  <h1 class="cover-title display">L’alphabet de Pip</h1>
+  <p class="cover-sub">Une aventure de lettres</p>
+  <span class="cover-age">3 à 7 ans</span>
+</div>
+<p class="cover-tag">Pars à la découverte de chaque lettre avec Pip le petit renard.</p>
+</section>
+</body>
+</html>

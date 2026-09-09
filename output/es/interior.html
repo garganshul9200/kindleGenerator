@@ -1,0 +1,1944 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>El alfabeto de Pip</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../../assets/fonts/book/nunito-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  font-display: block;
+  src: url("../../assets/fonts/book/nunito-latin-600-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url("../../assets/fonts/book/nunito-latin-700-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 800;
+  font-display: block;
+  src: url("../../assets/fonts/book/nunito-latin-800-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../../assets/fonts/book/nunito-latin-ext-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url("../../assets/fonts/book/nunito-latin-ext-700-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Fredoka";
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url("../../assets/fonts/book/fredoka-latin-500-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Fredoka";
+  font-style: normal;
+  font-weight: 600;
+  font-display: block;
+  src: url("../../assets/fonts/book/fredoka-latin-600-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Fredoka";
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url("../../assets/fonts/book/fredoka-latin-700-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Fredoka";
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url("../../assets/fonts/book/fredoka-latin-ext-500-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Fredoka";
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url("../../assets/fonts/book/fredoka-latin-ext-700-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Baloo 2";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../../assets/fonts/book/baloo-2-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Baloo 2";
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url("../../assets/fonts/book/baloo-2-latin-700-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Baloo 2";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../../assets/fonts/book/baloo-2-devanagari-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Baloo 2";
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url("../../assets/fonts/book/baloo-2-devanagari-700-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Baloo Paaji 2";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../../assets/fonts/book/baloo-paaji-2-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Baloo Paaji 2";
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url("../../assets/fonts/book/baloo-paaji-2-latin-700-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Baloo Paaji 2";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../../assets/fonts/book/baloo-paaji-2-gurmukhi-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Baloo Paaji 2";
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url("../../assets/fonts/book/baloo-paaji-2-gurmukhi-700-normal.woff2") format("woff2");
+}
+/* Pip's Alphabet — print-first stylesheet
+   Trim 8.5in × 8.5in + 0.125in bleed = 8.75in PDF page
+   Do not add crop marks. KDP wants bleed to the page edge.
+*/
+
+:root {
+  --page: 8.75in;
+  --bleed: 0.125in;
+  --safe: 0.375in;          /* bleed + 0.25in trim margin */
+  --gutter: 0.62in;         /* binding-side inset from PDF edge */
+  --outer: 0.42in;
+  --cream: #f6efe3;
+  --cream-deep: #efe4d2;
+  --ink: #3d342c;
+  --ink-soft: #6a5e52;
+  --paper-line: #e2d4bf;
+  --white: #fffdf8;
+  --shadow: rgba(61, 52, 44, 0.12);
+}
+
+/* Theme tokens — assigned per spread */
+.theme-coral { --bg: #f8eee6; --accent: #d45d4a; --soft: #f0d0c4; --deep: #a33f32; }
+.theme-honey { --bg: #f7f1de; --accent: #d4a017; --soft: #f0e2b0; --deep: #8a6a12; }
+.theme-sage  { --bg: #eef4ea; --accent: #5d9a6e; --soft: #d3e6d4; --deep: #3d6a48; }
+.theme-sky   { --bg: #eef4f8; --accent: #4a8fbf; --soft: #d0e3f0; --deep: #2f6286; }
+.theme-plum  { --bg: #f4eef5; --accent: #8b6bb0; --soft: #e2d5ee; --deep: #5c4478; }
+.theme-peach { --bg: #f8efe6; --accent: #e0895c; --soft: #f3d8c4; --deep: #9a5430; }
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  color: var(--ink);
+  background: var(--cream);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  color-adjust: exact;
+}
+
+body {
+  font-family: "Nunito", "Baloo 2", "Baloo Paaji 2", sans-serif;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.script-devanagari {
+  font-family: "Baloo 2", "Nunito", sans-serif;
+}
+.script-gurmukhi {
+  font-family: "Baloo Paaji 2", "Nunito", sans-serif;
+}
+
+.display {
+  font-family: "Fredoka", "Baloo 2", "Baloo Paaji 2", sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.script-devanagari .display,
+.script-devanagari .giant-letter {
+  font-family: "Baloo 2", sans-serif;
+}
+.script-gurmukhi .display,
+.script-gurmukhi .giant-letter {
+  font-family: "Baloo Paaji 2", sans-serif;
+}
+
+@page {
+  size: 8.75in 8.75in;
+  margin: 0;
+}
+
+/* ---------- Screen preview ---------- */
+@media screen {
+  body {
+    background: #cfc3ae;
+    padding: 32px 0 80px;
+  }
+  .page {
+    margin: 0 auto 28px;
+    box-shadow:
+      0 18px 50px rgba(61, 52, 44, 0.18),
+      0 0 0 1px rgba(61, 52, 44, 0.06);
+  }
+}
+
+@media print {
+  body { background: none; padding: 0; }
+  .page {
+    margin: 0;
+    box-shadow: none;
+    page-break-after: always;
+    break-after: page;
+  }
+}
+
+/* ---------- Page shell ---------- */
+.page {
+  width: var(--page);
+  height: var(--page);
+  position: relative;
+  overflow: hidden;
+  background: var(--cream);
+}
+
+.page .bleed-wash {
+  position: absolute;
+  inset: 0;
+  background: var(--bg, var(--cream));
+}
+
+.safe {
+  position: absolute;
+  top: var(--safe);
+  bottom: 0.38in;
+  display: flex;
+  flex-direction: column;
+}
+.page.recto .safe { left: var(--gutter); right: var(--outer); }
+.page.verso .safe { left: var(--outer); right: var(--gutter); }
+
+/* Full-bleed pages (cover) ignore the safe column */
+.page.cover .safe,
+.page.scene-full .safe {
+  inset: 0;
+}
+
+.folio {
+  position: absolute;
+  bottom: 0.22in;
+  font-size: 9pt;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  z-index: 5;
+}
+.page.recto .folio { right: 0.38in; }
+.page.verso .folio { left: 0.38in; }
+.page.cover .folio,
+.page.unnumbered .folio { display: none; }
+
+.paw {
+  width: 0.16in;
+  height: 0.16in;
+  display: inline-block;
+  vertical-align: -0.02in;
+  margin-right: 0.08in;
+  opacity: 0.7;
+}
+
+/* ---------- Cover / title ---------- */
+.cover-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+}
+
+.cover-scrim {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 2.55in;
+  background: linear-gradient(to bottom, rgba(246, 239, 227, 0.94) 0%, rgba(246, 239, 227, 0.72) 58%, rgba(246, 239, 227, 0) 100%);
+}
+
+.cover-band {
+  position: absolute;
+  left: 0.55in;
+  right: 0.55in;
+  top: 0.42in;
+  text-align: center;
+  z-index: 3;
+}
+.page.recto.cover .cover-band { padding-left: 0.12in; }
+.page.verso.cover .cover-band { padding-right: 0.12in; }
+
+.kicker {
+  font-size: 10pt;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--deep, #a33f32);
+  margin: 0 0 0.08in;
+}
+
+.cover-title {
+  font-size: 46pt;
+  line-height: 0.92;
+  margin: 0;
+  color: #c94b3a;
+}
+
+.cover-sub {
+  font-size: 16pt;
+  font-weight: 650;
+  margin: 0.12in 0 0;
+  color: var(--ink);
+}
+
+.cover-age {
+  display: inline-block;
+  margin-top: 0.16in;
+  padding: 0.06in 0.2in;
+  border-radius: 999px;
+  background: rgba(255, 253, 248, 0.85);
+  font-size: 10pt;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--deep, #a33f32);
+}
+
+.cover-tag {
+  position: absolute;
+  left: 0.55in;
+  right: 0.55in;
+  bottom: 0.42in;
+  text-align: center;
+  z-index: 3;
+  font-size: 13pt;
+  font-weight: 700;
+  color: var(--ink);
+  text-shadow: 0 1px 0 rgba(255, 253, 248, 0.7);
+}
+
+/* ---------- Quiet interior pages ---------- */
+.page-heading {
+  font-size: 32pt;
+  line-height: 1.05;
+  margin: 0 0 0.18in;
+  color: var(--accent, #d45d4a);
+}
+
+.lede {
+  font-size: 14.5pt;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 0.2in;
+}
+
+.body-copy {
+  font-size: 13.5pt;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.imprint {
+  margin-top: auto;
+  font-size: 10pt;
+  font-weight: 600;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+.rule {
+  width: 1.1in;
+  height: 0.045in;
+  background: var(--accent, #d45d4a);
+  border: 0;
+  margin: 0 0 0.22in;
+  border-radius: 99px;
+}
+
+/* Belongs to */
+.belongs-card {
+  margin-top: 0.35in;
+  background: var(--white);
+  border-radius: 0.28in;
+  padding: 0.45in 0.4in 0.4in;
+  box-shadow: 0 0.08in 0.2in var(--shadow);
+  border: 0.02in solid var(--soft, var(--paper-line));
+}
+.field {
+  margin: 0.28in 0 0;
+}
+.field label {
+  display: block;
+  font-size: 10pt;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 0.1in;
+}
+.line {
+  border: 0;
+  border-bottom: 0.03in solid var(--paper-line);
+  height: 0.42in;
+}
+
+.pip-spot {
+  width: 2.35in;
+  height: 2.35in;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 0.07in solid #fff;
+  box-shadow: 0 0.1in 0.22in var(--shadow);
+}
+
+.meet-row {
+  display: flex;
+  gap: 0.28in;
+  align-items: center;
+  margin-top: 0.15in;
+  flex: 1;
+}
+
+/* How to */
+.steps {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.22in;
+  margin-top: 0.2in;
+  flex: 1;
+}
+.step {
+  background: var(--white);
+  border-radius: 0.22in;
+  padding: 0.22in 0.2in 0.2in;
+  border: 0.02in solid var(--soft, var(--paper-line));
+}
+.step-n {
+  width: 0.38in;
+  height: 0.38in;
+  border-radius: 50%;
+  background: var(--accent, #d45d4a);
+  color: #fff;
+  font-family: "Fredoka", "Baloo 2", "Baloo Paaji 2", sans-serif;
+  font-weight: 600;
+  font-size: 13pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.1in;
+}
+.step h3 {
+  margin: 0 0 0.06in;
+  font-size: 16pt;
+  color: var(--ink);
+}
+.step p {
+  margin: 0;
+  font-size: 11.5pt;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+/* ---------- Letter left (playground) ---------- */
+.letter-stage {
+  position: relative;
+  flex: 1;
+  min-height: 4.6in;
+}
+
+.letter-halo {
+  position: absolute;
+  width: 5.1in;
+  height: 5.1in;
+  left: 50%;
+  top: 46%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--soft) 0%, transparent 68%);
+}
+
+.giant-letter {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: flex-end;
+  gap: 0.08in;
+  line-height: 0.8;
+  z-index: 2;
+  user-select: none;
+}
+
+.giant-letter .upper {
+  font-size: 4.05in;
+  font-weight: 650;
+  color: var(--white);
+  -webkit-text-stroke: 0.11in var(--accent);
+  paint-order: stroke fill;
+  text-shadow: 0.04in 0.055in 0 var(--soft);
+}
+
+.giant-letter .lower {
+  font-size: 1.55in;
+  font-weight: 550;
+  color: var(--accent);
+  margin-bottom: 0.28in;
+}
+
+.script-devanagari .giant-letter .upper,
+.script-gurmukhi .giant-letter .upper {
+  font-size: 3.35in;
+  -webkit-text-stroke: 0.08in var(--accent);
+}
+
+.pip-sticker {
+  position: absolute;
+  width: 1.55in;
+  height: 1.55in;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 0.055in solid #fff;
+  box-shadow: 0 0.08in 0.18in var(--shadow);
+  z-index: 3;
+}
+
+.letter-meta {
+  text-align: center;
+  padding-bottom: 0.08in;
+}
+
+.word-xl {
+  font-size: 28pt;
+  margin: 0;
+  color: var(--deep, var(--ink));
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.script-devanagari .word-xl,
+.script-gurmukhi .word-xl {
+  text-transform: none;
+  font-size: 26pt;
+}
+
+.pron {
+  margin: 0.04in 0 0.1in;
+  font-size: 11pt;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.sentence {
+  margin: 0;
+  font-size: 14pt;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* ---------- Letter right (scene) ---------- */
+.scene-frame {
+  flex: 1;
+  border-radius: 0.28in;
+  overflow: hidden;
+  background: var(--soft);
+  box-shadow: 0 0.1in 0.22in var(--shadow);
+  border: 0.045in solid #fff;
+  min-height: 5.15in;
+}
+.scene-frame img,
+.scene-frame .fallback-scene {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.fallback-scene {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background:
+    radial-gradient(circle at 30% 30%, var(--soft), var(--bg));
+  height: 100%;
+}
+.fallback-scene .big {
+  font-size: 3.2in;
+  color: var(--accent);
+  opacity: 0.35;
+  font-family: "Fredoka", "Baloo 2", "Baloo Paaji 2", sans-serif;
+}
+.fallback-scene img {
+  position: absolute;
+  width: 2.1in;
+  height: 2.1in;
+  object-fit: cover;
+  border-radius: 50%;
+  bottom: 0.35in;
+  right: 0.4in;
+  border: 0.06in solid #fff;
+}
+
+.scene-caption {
+  padding: 0.16in 0.06in 0.02in;
+  text-align: center;
+}
+
+.scene-word {
+  font-size: 26pt;
+  margin: 0;
+  color: var(--deep, var(--ink));
+}
+
+.fact {
+  margin: 0.04in 0 0.1in;
+  font-size: 12.5pt;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
+.mini-trace {
+  display: flex;
+  justify-content: center;
+  gap: 0.18in;
+  align-items: center;
+}
+.trace {
+  font-family: "Fredoka", "Baloo 2", "Baloo Paaji 2", sans-serif;
+  font-size: 28pt;
+  font-weight: 550;
+  color: transparent;
+  -webkit-text-stroke: 1.6pt var(--accent);
+  paint-order: stroke fill;
+  letter-spacing: 0.08em;
+  opacity: 0.55;
+}
+.trace-hint {
+  font-size: 8.5pt;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-right: 0.08in;
+}
+
+/* ---------- Tracing grids ---------- */
+.trace-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.16in;
+  flex: 1;
+  align-content: start;
+  margin-top: 0.12in;
+}
+.trace-cell {
+  height: 1.35in;
+  border-radius: 0.16in;
+  background: var(--white);
+  border: 0.02in dashed var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.trace-cell span {
+  font-family: "Fredoka", "Baloo 2", "Baloo Paaji 2", sans-serif;
+  font-size: 42pt;
+  font-weight: 550;
+  color: transparent;
+  -webkit-text-stroke: 2pt var(--accent);
+  opacity: 0.7;
+}
+
+/* ---------- Review ---------- */
+.alpha-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.12in;
+  flex: 1;
+  margin-top: 0.15in;
+}
+.alpha-chip {
+  background: var(--white);
+  border-radius: 0.16in;
+  padding: 0.1in 0.06in 0.12in;
+  text-align: center;
+  border: 0.02in solid var(--soft, var(--paper-line));
+}
+.alpha-chip .ch {
+  display: block;
+  font-family: "Fredoka", "Baloo 2", "Baloo Paaji 2", sans-serif;
+  font-size: 22pt;
+  font-weight: 650;
+  color: var(--accent, #d45d4a);
+  line-height: 1;
+}
+.alpha-chip .wd {
+  display: block;
+  font-size: 8.5pt;
+  font-weight: 800;
+  color: var(--ink-soft);
+  margin-top: 0.04in;
+  line-height: 1.15;
+}
+.alpha-grid.dense {
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.08in;
+}
+.alpha-grid.dense .alpha-chip { padding: 0.06in 0.04in 0.08in; }
+.alpha-grid.dense .ch { font-size: 16pt; }
+.alpha-grid.dense .wd { font-size: 7.5pt; }
+
+/* ---------- Matching ---------- */
+.match {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 0.28in;
+  flex: 1;
+  margin-top: 0.12in;
+}
+.match-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.16in;
+}
+.match-letter, .match-pic {
+  display: flex;
+  align-items: center;
+  gap: 0.14in;
+  background: var(--white);
+  border-radius: 0.18in;
+  padding: 0.08in 0.12in;
+  min-height: 0.95in;
+  border: 0.02in solid var(--soft, var(--paper-line));
+}
+.bubble {
+  width: 0.62in;
+  height: 0.62in;
+  border-radius: 50%;
+  background: var(--accent, #d45d4a);
+  color: #fff;
+  font-family: "Fredoka", "Baloo 2", "Baloo Paaji 2", sans-serif;
+  font-size: 22pt;
+  font-weight: 650;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.match-pic img {
+  width: 0.82in;
+  height: 0.82in;
+  object-fit: cover;
+  border-radius: 0.12in;
+}
+.dot-line {
+  flex: 1;
+  border-bottom: 0.03in dotted var(--paper-line);
+  height: 0;
+}
+
+/* ---------- Certificate ---------- */
+.cert-frame {
+  flex: 1;
+  border-radius: 0.3in;
+  border: 0.08in solid var(--accent, #d45d4a);
+  background: var(--white);
+  padding: 0.32in 0.34in 0.28in;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+.cert-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0.12in;
+  border-radius: 0.2in;
+  border: 0.02in solid var(--soft, var(--paper-line));
+  pointer-events: none;
+}
+.cert-frame .kicker { margin-top: 0.08in; }
+.cert-title {
+  font-size: 28pt;
+  margin: 0.08in 0 0.12in;
+  color: var(--accent, #d45d4a);
+  line-height: 1.05;
+}
+.cert-body {
+  font-size: 12.5pt;
+  font-weight: 700;
+  color: var(--ink-soft);
+  max-width: 5.6in;
+  margin: 0 0 0.18in;
+}
+.cert-photo {
+  width: 2.05in;
+  height: 2.05in;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 0.06in solid #fff;
+  box-shadow: 0 0.08in 0.18in var(--shadow);
+  margin: 0.06in 0 0.16in;
+}
+.cert-fields {
+  width: 100%;
+  max-width: 5.2in;
+  text-align: left;
+}
+.stamp {
+  margin-top: 0.16in;
+  font-size: 9pt;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.closing-note {
+  margin-top: auto;
+  text-align: center;
+  font-size: 14pt;
+  font-weight: 700;
+}
+
+img { max-width: 100%; }
+h1, h2, h3, p { font-weight: 700; }
+
+</style>
+</head>
+<body class="script-latin">
+<section class="page recto cover theme-coral unnumbered" data-page="1">
+<div class="bleed-wash"></div>
+<img class="cover-art" src="../../assets/illustrations/cover-art.png" alt="">
+<div class="cover-scrim"></div>
+<div class="cover-band">
+  <p class="kicker">Las aventuras del alfabeto de Pip</p>
+  <h1 class="cover-title display">El alfabeto de Pip</h1>
+  <p class="cover-sub">Una aventura de letras</p>
+  <span class="cover-age">De 3 a 7 años</span>
+</div>
+<p class="cover-tag">Descubre cada letra con Pip, el zorrito.</p>
+</section>
+<section class="page verso title theme-coral" data-page="2"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>2</div>
+<div class="safe">
+  <p class="kicker">Las aventuras del alfabeto de Pip</p>
+  <h1 class="page-heading display">El alfabeto de Pip</h1>
+  <p class="lede">Una aventura de letras</p>
+  <hr class="rule">
+  <p class="body-copy">Un abecedario ilustrado para lectores curiosos.</p>
+  <div class="imprint">
+    Pip &amp; Your Name<br>
+    Pip &amp; Page Press<br>
+    First edition · 2026
+  </div>
+</div>
+</section>
+<section class="page recto copyright theme-honey" data-page="3"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>3</div>
+<div class="safe">
+  <h1 class="page-heading display">El alfabeto de Pip</h1>
+  <p class="body-copy">
+    Copyright © 2026 Your Name.
+    All rights reserved. No part of this book may be reproduced without permission,
+    except for brief quotations in reviews.
+  </p>
+  <p class="body-copy" style="margin-top:0.28in">
+    Illustrations and layout are original to this edition.
+    Typefaces: Nunito, Fredoka, Baloo 2 and Baloo Paaji 2 (SIL Open Font License).
+  </p>
+  <div class="imprint">
+    Pip &amp; Page Press<br>
+    Paperback · Spanish · De 3 a 7 años<br>
+    Printed via Amazon KDP · Trim 8.5 × 8.5 in
+  </div>
+</div>
+</section>
+<section class="page verso belongs theme-sage" data-page="4"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>4</div>
+<div class="safe">
+  <h1 class="page-heading display">Este libro pertenece a</h1>
+  <div class="belongs-card">
+    <div class="field">
+      <label>Nombre</label>
+      <div class="line"></div>
+    </div>
+    <div class="field">
+      <label>Edad</label>
+      <div class="line"></div>
+    </div>
+    <p class="body-copy" style="margin-top:0.35in">Pip está feliz de que hayas venido.</p>
+  </div>
+</div>
+</section>
+<section class="page recto meet theme-peach" data-page="5"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>5</div>
+<div class="safe">
+  <h1 class="page-heading display">Conoce a Pip</h1>
+  <div class="meet-row">
+    <img class="pip-spot" src="../../assets/illustrations/mascot/pip-wave.png" alt="Pip">
+    <div>
+      <p class="lede">Este es Pip, un zorrito con una curiosidad enorme. Pip trepa letras, prueba manzanas, vuela cometas y hace cien preguntas. En cada página, Pip descubre algo nuevo — y tú también.</p>
+      <p class="sentence">¿Puedes encontrar a Pip en cada letra?</p>
+    </div>
+  </div>
+</div>
+</section>
+<section class="page verso how theme-sky" data-page="6"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>6</div>
+<div class="safe">
+  <h1 class="page-heading display">Cómo usar este libro</h1>
+  <p class="lede">Léanlo juntos. Señalen, jueguen y párense cuando quieran. No hay una forma incorrecta.</p>
+  <div class="steps"><article class="step">
+  <div class="step-n">1</div>
+  <h3 class="display">Mira</h3>
+  <p>Señala la letra grande. Recórrela con un dedo.</p>
+</article><article class="step">
+  <div class="step-n">2</div>
+  <h3 class="display">Di</h3>
+  <p>Di el sonido y después di la palabra en voz alta.</p>
+</article><article class="step">
+  <div class="step-n">3</div>
+  <h3 class="display">Busca a Pip</h3>
+  <p>¿Dónde se esconde Pip esta vez? ¿Qué está haciendo?</p>
+</article><article class="step">
+  <div class="step-n">4</div>
+  <h3 class="display">Descubre</h3>
+  <p>Mira la ilustración grande. Hablen juntos del dato curioso.</p>
+</article></div>
+</div>
+</section>
+<section class="page recto blank theme-coral" data-page="7"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>7</div><div class="bleed-wash"></div></section>
+<section class="page verso letter-left theme-coral" data-page="8"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>8</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="letter-stage">
+    <div class="letter-halo"></div>
+    <div class="giant-letter display" aria-label="A a">
+      <span class="upper">A</span><span class="lower">a</span>
+    </div>
+    <img class="pip-sticker" src="../../assets/illustrations/mascot/pip-wave.png" alt="" style="left:52%;top:46%;width:1.55in;height:1.55in;transform:translate(-50%,-50%) rotate(-8deg);">
+  </div>
+  <div class="letter-meta">
+    <p class="word-xl display">Árbol</p>
+    <p class="pron">AHR-bol</p>
+    <p class="sentence">Árbol empieza con A.</p>
+  </div>
+</div>
+</section>
+<section class="page recto letter-right theme-coral" data-page="9"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>9</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="scene-frame">
+    <img src="../../assets/illustrations/scenes/scene-tree.png" alt="Pip — Árbol">
+  </div>
+  <div class="scene-caption">
+    <p class="scene-word display">Árbol</p>
+    <p class="fact">Un árbol da sombra, oxígeno y un hogar a los pájaros.</p>
+    <div class="mini-trace">
+      <span class="trace-hint">Trace</span>
+      <span class="trace">A</span><span class="trace">a</span>
+    </div>
+  </div>
+</div>
+</section>
+<section class="page verso letter-left theme-honey" data-page="10"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>10</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="letter-stage">
+    <div class="letter-halo"></div>
+    <div class="giant-letter display" aria-label="B b">
+      <span class="upper">B</span><span class="lower">b</span>
+    </div>
+    <img class="pip-sticker" src="../../assets/illustrations/mascot/pip-wave.png" alt="" style="left:62%;top:34%;width:1.47in;height:1.47in;transform:translate(-50%,-50%) rotate(10deg);">
+  </div>
+  <div class="letter-meta">
+    <p class="word-xl display">Barco</p>
+    <p class="pron">BAHR-ko</p>
+    <p class="sentence">Barco empieza con B.</p>
+  </div>
+</div>
+</section>
+<section class="page recto letter-right theme-honey" data-page="11"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>11</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="scene-frame">
+    <img src="../../assets/illustrations/scenes/scene-whale.png" alt="Pip — Barco">
+  </div>
+  <div class="scene-caption">
+    <p class="scene-word display">Barco</p>
+    <p class="fact">Un barco flota y nos lleva por el agua.</p>
+    <div class="mini-trace">
+      <span class="trace-hint">Trace</span>
+      <span class="trace">B</span><span class="trace">b</span>
+    </div>
+  </div>
+</div>
+</section>
+<section class="page verso letter-left theme-sage" data-page="12"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>12</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="letter-stage">
+    <div class="letter-halo"></div>
+    <div class="giant-letter display" aria-label="C c">
+      <span class="upper">C</span><span class="lower">c</span>
+    </div>
+    <img class="pip-sticker" src="../../assets/illustrations/mascot/pip-wave.png" alt="" style="left:58%;top:50%;width:1.55in;height:1.55in;transform:translate(-50%,-50%) rotate(6deg);">
+  </div>
+  <div class="letter-meta">
+    <p class="word-xl display">Casa</p>
+    <p class="pron">KAH-sa</p>
+    <p class="sentence">Casa empieza con C.</p>
+  </div>
+</div>
+</section>
+<section class="page recto letter-right theme-sage" data-page="13"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>13</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="scene-frame">
+    <img src="../../assets/illustrations/scenes/scene-igloo.png" alt="Pip — Casa">
+  </div>
+  <div class="scene-caption">
+    <p class="scene-word display">Casa</p>
+    <p class="fact">Una casa es el lugar donde nos sentimos seguros.</p>
+    <div class="mini-trace">
+      <span class="trace-hint">Trace</span>
+      <span class="trace">C</span><span class="trace">c</span>
+    </div>
+  </div>
+</div>
+</section>
+<section class="page verso letter-left theme-sky" data-page="14"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>14</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="letter-stage">
+    <div class="letter-halo"></div>
+    <div class="giant-letter display" aria-label="D d">
+      <span class="upper">D</span><span class="lower">d</span>
+    </div>
+    <img class="pip-sticker" src="../../assets/illustrations/mascot/pip-wave.png" alt="" style="left:60%;top:36%;width:1.47in;height:1.47in;transform:translate(-50%,-50%) rotate(-4deg);">
+  </div>
+  <div class="letter-meta">
+    <p class="word-xl display">Dado</p>
+    <p class="pron">DAH-do</p>
+    <p class="sentence">Dado empieza con D.</p>
+  </div>
+</div>
+</section>
+<section class="page recto letter-right theme-sky" data-page="15"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>15</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="scene-frame">
+    <img src="../../assets/illustrations/scenes/scene-ball.png" alt="Pip — Dado">
+  </div>
+  <div class="scene-caption">
+    <p class="scene-word display">Dado</p>
+    <p class="fact">Un dado tiene seis caras y cada una tiene puntos.</p>
+    <div class="mini-trace">
+      <span class="trace-hint">Trace</span>
+      <span class="trace">D</span><span class="trace">d</span>
+    </div>
+  </div>
+</div>
+</section>
+<section class="page verso letter-left theme-plum" data-page="16"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>16</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="letter-stage">
+    <div class="letter-halo"></div>
+    <div class="giant-letter display" aria-label="E e">
+      <span class="upper">E</span><span class="lower">e</span>
+    </div>
+    <img class="pip-sticker" src="../../assets/illustrations/mascot/pip-wave.png" alt="" style="left:56%;top:30%;width:1.43in;height:1.43in;transform:translate(-50%,-50%) rotate(8deg);">
+  </div>
+  <div class="letter-meta">
+    <p class="word-xl display">Elefante</p>
+    <p class="pron">eh-leh-FAHN-teh</p>
+    <p class="sentence">Elefante empieza con E.</p>
+  </div>
+</div>
+</section>
+<section class="page recto letter-right theme-plum" data-page="17"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>17</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="scene-frame">
+    <img src="../../assets/illustrations/scenes/scene-goat.png" alt="Pip — Elefante">
+  </div>
+  <div class="scene-caption">
+    <p class="scene-word display">Elefante</p>
+    <p class="fact">Un elefante usa su trompa para beber, saludar y darse un baño.</p>
+    <div class="mini-trace">
+      <span class="trace-hint">Trace</span>
+      <span class="trace">E</span><span class="trace">e</span>
+    </div>
+  </div>
+</div>
+</section>
+<section class="page verso letter-left theme-peach" data-page="18"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>18</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="letter-stage">
+    <div class="letter-halo"></div>
+    <div class="giant-letter display" aria-label="F f">
+      <span class="upper">F</span><span class="lower">f</span>
+    </div>
+    <img class="pip-sticker" src="../../assets/illustrations/mascot/pip-wave.png" alt="" style="left:48%;top:28%;width:1.40in;height:1.40in;transform:translate(-50%,-50%) rotate(12deg);">
+  </div>
+  <div class="letter-meta">
+    <p class="word-xl display">Flor</p>
+    <p class="pron">FLOR</p>
+    <p class="sentence">Flor empieza con F.</p>
+  </div>
+</div>
+</section>
+<section class="page recto letter-right theme-peach" data-page="19"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>19</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="scene-frame">
+    <img src="../../assets/illustrations/scenes/scene-leaf.png" alt="Pip — Flor">
+  </div>
+  <div class="scene-caption">
+    <p class="scene-word display">Flor</p>
+    <p class="fact">Una flor tiene pétalos y a menudo un olor dulce.</p>
+    <div class="mini-trace">
+      <span class="trace-hint">Trace</span>
+      <span class="trace">F</span><span class="trace">f</span>
+    </div>
+  </div>
+</div>
+</section>
+<section class="page verso letter-left theme-coral" data-page="20"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>20</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="letter-stage">
+    <div class="letter-halo"></div>
+    <div class="giant-letter display" aria-label="G g">
+      <span class="upper">G</span><span class="lower">g</span>
+    </div>
+    <img class="pip-sticker" src="../../assets/illustrations/mascot/pip-wave.png" alt="" style="left:60%;top:48%;width:1.55in;height:1.55in;transform:translate(-50%,-50%) rotate(-6deg);">
+  </div>
+  <div class="letter-meta">
+    <p class="word-xl display">Gato</p>
+    <p class="pron">GAH-to</p>
+    <p class="sentence">Gato empieza con G.</p>
+  </div>
+</div>
+</section>
+<section class="page recto letter-right theme-coral" data-page="21"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>21</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="scene-frame">
+    <img src="../../assets/illustrations/scenes/scene-cat.png" alt="Pip — Gato">
+  </div>
+  <div class="scene-caption">
+    <p class="scene-word display">Gato</p>
+    <p class="fact">Un gato ronronea cuando se siente querido.</p>
+    <div class="mini-trace">
+      <span class="trace-hint">Trace</span>
+      <span class="trace">G</span><span class="trace">g</span>
+    </div>
+  </div>
+</div>
+</section>
+<section class="page verso letter-left theme-honey" data-page="22"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>22</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="letter-stage">
+    <div class="letter-halo"></div>
+    <div class="giant-letter display" aria-label="H h">
+      <span class="upper">H</span><span class="lower">h</span>
+    </div>
+    <img class="pip-sticker" src="../../assets/illustrations/mascot/pip-wave.png" alt="" style="left:50%;top:32%;width:1.43in;height:1.43in;transform:translate(-50%,-50%) rotate(4deg);">
+  </div>
+  <div class="letter-meta">
+    <p class="word-xl display">Helado</p>
+    <p class="pron">eh-LAH-do</p>
+    <p class="sentence">Helado empieza con H.</p>
+  </div>
+</div>
+</section>
+<section class="page recto letter-right theme-honey" data-page="23"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>23</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="scene-frame">
+    <img src="../../assets/illustrations/scenes/scene-juice.png" alt="Pip — Helado">
+  </div>
+  <div class="scene-caption">
+    <p class="scene-word display">Helado</p>
+    <p class="fact">El helado es frío, dulce y se derrite si no lo comes pronto.</p>
+    <div class="mini-trace">
+      <span class="trace-hint">Trace</span>
+      <span class="trace">H</span><span class="trace">h</span>
+    </div>
+  </div>
+</div>
+</section>
+<section class="page verso letter-left theme-sage" data-page="24"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>24</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="letter-stage">
+    <div class="letter-halo"></div>
+    <div class="giant-letter display" aria-label="I i">
+      <span class="upper">I</span><span class="lower">i</span>
+    </div>
+    <img class="pip-sticker" src="../../assets/illustrations/mascot/pip-wave.png" alt="" style="left:28%;top:42%;width:1.47in;height:1.47in;transform:translate(-50%,-50%) rotate(-10deg);">
+  </div>
+  <div class="letter-meta">
+    <p class="word-xl display">Isla</p>
+    <p class="pron">EES-la</p>
+    <p class="sentence">Isla empieza con I.</p>
+  </div>
+</div>
+</section>
+<section class="page recto letter-right theme-sage" data-page="25"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>25</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="scene-frame">
+    <img src="../../assets/illustrations/scenes/scene-igloo.png" alt="Pip — Isla">
+  </div>
+  <div class="scene-caption">
+    <p class="scene-word display">Isla</p>
+    <p class="fact">Una isla es tierra rodeada de agua por todos lados.</p>
+    <div class="mini-trace">
+      <span class="trace-hint">Trace</span>
+      <span class="trace">I</span><span class="trace">i</span>
+    </div>
+  </div>
+</div>
+</section>
+<section class="page verso letter-left theme-sky" data-page="26"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>26</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="letter-stage">
+    <div class="letter-halo"></div>
+    <div class="giant-letter display" aria-label="J j">
+      <span class="upper">J</span><span class="lower">j</span>
+    </div>
+    <img class="pip-sticker" src="../../assets/illustrations/mascot/pip-wave.png" alt="" style="left:48%;top:38%;width:1.47in;height:1.47in;transform:translate(-50%,-50%) rotate(8deg);">
+  </div>
+  <div class="letter-meta">
+    <p class="word-xl display">Jirafa</p>
+    <p class="pron">hee-RAH-fa</p>
+    <p class="sentence">Jirafa empieza con J.</p>
+  </div>
+</div>
+</section>
+<section class="page recto letter-right theme-sky" data-page="27"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>27</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="scene-frame">
+    <img src="../../assets/illustrations/scenes/scene-tree.png" alt="Pip — Jirafa">
+  </div>
+  <div class="scene-caption">
+    <p class="scene-word display">Jirafa</p>
+    <p class="fact">Una jirafa tiene el cuello más largo de todos los animales.</p>
+    <div class="mini-trace">
+      <span class="trace-hint">Trace</span>
+      <span class="trace">J</span><span class="trace">j</span>
+    </div>
+  </div>
+</div>
+</section>
+<section class="page verso letter-left theme-plum" data-page="28"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>28</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="letter-stage">
+    <div class="letter-halo"></div>
+    <div class="giant-letter display" aria-label="K k">
+      <span class="upper">K</span><span class="lower">k</span>
+    </div>
+    <img class="pip-sticker" src="../../assets/illustrations/mascot/pip-wave.png" alt="" style="left:58%;top:44%;width:1.55in;height:1.55in;transform:translate(-50%,-50%) rotate(-12deg);">
+  </div>
+  <div class="letter-meta">
+    <p class="word-xl display">Kiwi</p>
+    <p class="pron">KEE-wee</p>
+    <p class="sentence">Kiwi empieza con K.</p>
+  </div>
+</div>
+</section>
+<section class="page recto letter-right theme-plum" data-page="29"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>29</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="scene-frame">
+    <img src="../../assets/illustrations/scenes/scene-apple.png" alt="Pip — Kiwi">
+  </div>
+  <div class="scene-caption">
+    <p class="scene-word display">Kiwi</p>
+    <p class="fact">El kiwi es una fruta peluda por fuera y verde por dentro.</p>
+    <div class="mini-trace">
+      <span class="trace-hint">Trace</span>
+      <span class="trace">K</span><span class="trace">k</span>
+    </div>
+  </div>
+</div>
+</section>
+<section class="page verso letter-left theme-peach" data-page="30"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>30</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="letter-stage">
+    <div class="letter-halo"></div>
+    <div class="giant-letter display" aria-label="L l">
+      <span class="upper">L</span><span class="lower">l</span>
+    </div>
+    <img class="pip-sticker" src="../../assets/illustrations/mascot/pip-wave.png" alt="" style="left:42%;top:30%;width:1.40in;height:1.40in;transform:translate(-50%,-50%) rotate(6deg);">
+  </div>
+  <div class="letter-meta">
+    <p class="word-xl display">Luna</p>
+    <p class="pron">LOO-na</p>
+    <p class="sentence">Luna empieza con L.</p>
+  </div>
+</div>
+</section>
+<section class="page recto letter-right theme-peach" data-page="31"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>31</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="scene-frame">
+    <img src="../../assets/illustrations/scenes/scene-moon.png" alt="Pip — Luna">
+  </div>
+  <div class="scene-caption">
+    <p class="scene-word display">Luna</p>
+    <p class="fact">La luna brilla de noche porque refleja la luz del sol.</p>
+    <div class="mini-trace">
+      <span class="trace-hint">Trace</span>
+      <span class="trace">L</span><span class="trace">l</span>
+    </div>
+  </div>
+</div>
+</section>
+<section class="page verso letter-left theme-coral" data-page="32"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>32</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="letter-stage">
+    <div class="letter-halo"></div>
+    <div class="giant-letter display" aria-label="M m">
+      <span class="upper">M</span><span class="lower">m</span>
+    </div>
+    <img class="pip-sticker" src="../../assets/illustrations/mascot/pip-wave.png" alt="" style="left:50%;top:40%;width:1.47in;height:1.47in;transform:translate(-50%,-50%) rotate(0deg);">
+  </div>
+  <div class="letter-meta">
+    <p class="word-xl display">Manzana</p>
+    <p class="pron">mahn-SAH-na</p>
+    <p class="sentence">Manzana empieza con M.</p>
+  </div>
+</div>
+</section>
+<section class="page recto letter-right theme-coral" data-page="33"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>33</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="scene-frame">
+    <img src="../../assets/illustrations/scenes/scene-apple.png" alt="Pip — Manzana">
+  </div>
+  <div class="scene-caption">
+    <p class="scene-word display">Manzana</p>
+    <p class="fact">Una manzana cruje cuando le das un buen bocado.</p>
+    <div class="mini-trace">
+      <span class="trace-hint">Trace</span>
+      <span class="trace">M</span><span class="trace">m</span>
+    </div>
+  </div>
+</div>
+</section>
+<section class="page verso letter-left theme-honey" data-page="34"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>34</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="letter-stage">
+    <div class="letter-halo"></div>
+    <div class="giant-letter display" aria-label="N n">
+      <span class="upper">N</span><span class="lower">n</span>
+    </div>
+    <img class="pip-sticker" src="../../assets/illustrations/mascot/pip-wave.png" alt="" style="left:58%;top:36%;width:1.47in;height:1.47in;transform:translate(-50%,-50%) rotate(8deg);">
+  </div>
+  <div class="letter-meta">
+    <p class="word-xl display">Nube</p>
+    <p class="pron">NOO-beh</p>
+    <p class="sentence">Nube empieza con N.</p>
+  </div>
+</div>
+</section>
+<section class="page recto letter-right theme-honey" data-page="35"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>35</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="scene-frame">
+    <img src="../../assets/illustrations/scenes/scene-rainbow.png" alt="Pip — Nube">
+  </div>
+  <div class="scene-caption">
+    <p class="scene-word display">Nube</p>
+    <p class="fact">Una nube está hecha de gotitas de agua muy pequeñas.</p>
+    <div class="mini-trace">
+      <span class="trace-hint">Trace</span>
+      <span class="trace">N</span><span class="trace">n</span>
+    </div>
+  </div>
+</div>
+</section>
+<section class="page verso letter-left theme-sage" data-page="36"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>36</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="letter-stage">
+    <div class="letter-halo"></div>
+    <div class="giant-letter display" aria-label="Ñ ñ">
+      <span class="upper">Ñ</span><span class="lower">ñ</span>
+    </div>
+    <img class="pip-sticker" src="../../assets/illustrations/mascot/pip-wave.png" alt="" style="left:62%;top:48%;width:1.55in;height:1.55in;transform:translate(-50%,-50%) rotate(6deg);">
+  </div>
+  <div class="letter-meta">
+    <p class="word-xl display">Ñandú</p>
+    <p class="pron">NYAHN-doo</p>
+    <p class="sentence">Ñandú empieza con Ñ.</p>
+  </div>
+</div>
+</section>
+<section class="page recto letter-right theme-sage" data-page="37"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>37</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="scene-frame">
+    <img src="../../assets/illustrations/scenes/scene-zebra.png" alt="Pip — Ñandú">
+  </div>
+  <div class="scene-caption">
+    <p class="scene-word display">Ñandú</p>
+    <p class="fact">El ñandú es un ave grande de América que corre muy rápido.</p>
+    <div class="mini-trace">
+      <span class="trace-hint">Trace</span>
+      <span class="trace">Ñ</span><span class="trace">ñ</span>
+    </div>
+  </div>
+</div>
+</section>
+<section class="page verso letter-left theme-sky" data-page="38"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>38</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="letter-stage">
+    <div class="letter-halo"></div>
+    <div class="giant-letter display" aria-label="O o">
+      <span class="upper">O</span><span class="lower">o</span>
+    </div>
+    <img class="pip-sticker" src="../../assets/illustrations/mascot/pip-wave.png" alt="" style="left:62%;top:48%;width:1.55in;height:1.55in;transform:translate(-50%,-50%) rotate(6deg);">
+  </div>
+  <div class="letter-meta">
+    <p class="word-xl display">Oso</p>
+    <p class="pron">OH-so</p>
+    <p class="sentence">Oso empieza con O.</p>
+  </div>
+</div>
+</section>
+<section class="page recto letter-right theme-sky" data-page="39"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>39</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="scene-frame">
+    <img src="../../assets/illustrations/scenes/scene-owl.png" alt="Pip — Oso">
+  </div>
+  <div class="scene-caption">
+    <p class="scene-word display">Oso</p>
+    <p class="fact">Un oso duerme un sueño muy largo cuando llega el invierno.</p>
+    <div class="mini-trace">
+      <span class="trace-hint">Trace</span>
+      <span class="trace">O</span><span class="trace">o</span>
+    </div>
+  </div>
+</div>
+</section>
+<section class="page verso letter-left theme-plum" data-page="40"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>40</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="letter-stage">
+    <div class="letter-halo"></div>
+    <div class="giant-letter display" aria-label="P p">
+      <span class="upper">P</span><span class="lower">p</span>
+    </div>
+    <img class="pip-sticker" src="../../assets/illustrations/mascot/pip-wave.png" alt="" style="left:58%;top:32%;width:1.43in;height:1.43in;transform:translate(-50%,-50%) rotate(-6deg);">
+  </div>
+  <div class="letter-meta">
+    <p class="word-xl display">Pelota</p>
+    <p class="pron">peh-LOH-ta</p>
+    <p class="sentence">Pelota empieza con P.</p>
+  </div>
+</div>
+</section>
+<section class="page recto letter-right theme-plum" data-page="41"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>41</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="scene-frame">
+    <img src="../../assets/illustrations/scenes/scene-ball.png" alt="Pip — Pelota">
+  </div>
+  <div class="scene-caption">
+    <p class="scene-word display">Pelota</p>
+    <p class="fact">Una pelota rueda, bota y sirve para mil juegos.</p>
+    <div class="mini-trace">
+      <span class="trace-hint">Trace</span>
+      <span class="trace">P</span><span class="trace">p</span>
+    </div>
+  </div>
+</div>
+</section>
+<section class="page verso letter-left theme-peach" data-page="42"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>42</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="letter-stage">
+    <div class="letter-halo"></div>
+    <div class="giant-letter display" aria-label="Q q">
+      <span class="upper">Q</span><span class="lower">q</span>
+    </div>
+    <img class="pip-sticker" src="../../assets/illustrations/mascot/pip-wave.png" alt="" style="left:60%;top:50%;width:1.55in;height:1.55in;transform:translate(-50%,-50%) rotate(4deg);">
+  </div>
+  <div class="letter-meta">
+    <p class="word-xl display">Queso</p>
+    <p class="pron">KEH-so</p>
+    <p class="sentence">Queso empieza con Q.</p>
+  </div>
+</div>
+</section>
+<section class="page recto letter-right theme-peach" data-page="43"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>43</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="scene-frame">
+    <img src="../../assets/illustrations/scenes/scene-quilt.png" alt="Pip — Queso">
+  </div>
+  <div class="scene-caption">
+    <p class="scene-word display">Queso</p>
+    <p class="fact">El queso se hace con leche y puede ser suave o fuerte.</p>
+    <div class="mini-trace">
+      <span class="trace-hint">Trace</span>
+      <span class="trace">Q</span><span class="trace">q</span>
+    </div>
+  </div>
+</div>
+</section>
+<section class="page verso letter-left theme-coral" data-page="44"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>44</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="letter-stage">
+    <div class="letter-halo"></div>
+    <div class="giant-letter display" aria-label="R r">
+      <span class="upper">R</span><span class="lower">r</span>
+    </div>
+    <img class="pip-sticker" src="../../assets/illustrations/mascot/pip-wave.png" alt="" style="left:56%;top:38%;width:1.47in;height:1.47in;transform:translate(-50%,-50%) rotate(10deg);">
+  </div>
+  <div class="letter-meta">
+    <p class="word-xl display">Ratón</p>
+    <p class="pron">rah-TOHN</p>
+    <p class="sentence">Ratón empieza con R.</p>
+  </div>
+</div>
+</section>
+<section class="page recto letter-right theme-coral" data-page="45"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>45</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="scene-frame">
+    <img src="../../assets/illustrations/scenes/scene-cat.png" alt="Pip — Ratón">
+  </div>
+  <div class="scene-caption">
+    <p class="scene-word display">Ratón</p>
+    <p class="fact">Un ratón es pequeño, rápido y muy curioso.</p>
+    <div class="mini-trace">
+      <span class="trace-hint">Trace</span>
+      <span class="trace">R</span><span class="trace">r</span>
+    </div>
+  </div>
+</div>
+</section>
+<section class="page verso letter-left theme-honey" data-page="46"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>46</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="letter-stage">
+    <div class="letter-halo"></div>
+    <div class="giant-letter display" aria-label="S s">
+      <span class="upper">S</span><span class="lower">s</span>
+    </div>
+    <img class="pip-sticker" src="../../assets/illustrations/mascot/pip-wave.png" alt="" style="left:58%;top:42%;width:1.55in;height:1.55in;transform:translate(-50%,-50%) rotate(-8deg);">
+  </div>
+  <div class="letter-meta">
+    <p class="word-xl display">Sol</p>
+    <p class="pron">SOL</p>
+    <p class="sentence">Sol empieza con S.</p>
+  </div>
+</div>
+</section>
+<section class="page recto letter-right theme-honey" data-page="47"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>47</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="scene-frame">
+    <img src="../../assets/illustrations/scenes/scene-sun.png" alt="Pip — Sol">
+  </div>
+  <div class="scene-caption">
+    <p class="scene-word display">Sol</p>
+    <p class="fact">El sol es una estrella y nos regala luz y calor.</p>
+    <div class="mini-trace">
+      <span class="trace-hint">Trace</span>
+      <span class="trace">S</span><span class="trace">s</span>
+    </div>
+  </div>
+</div>
+</section>
+<section class="page verso letter-left theme-sage" data-page="48"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>48</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="letter-stage">
+    <div class="letter-halo"></div>
+    <div class="giant-letter display" aria-label="T t">
+      <span class="upper">T</span><span class="lower">t</span>
+    </div>
+    <img class="pip-sticker" src="../../assets/illustrations/mascot/pip-wave.png" alt="" style="left:50%;top:30%;width:1.40in;height:1.40in;transform:translate(-50%,-50%) rotate(0deg);">
+  </div>
+  <div class="letter-meta">
+    <p class="word-xl display">Tren</p>
+    <p class="pron">TREN</p>
+    <p class="sentence">Tren empieza con T.</p>
+  </div>
+</div>
+</section>
+<section class="page recto letter-right theme-sage" data-page="49"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>49</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="scene-frame">
+    <div class="fallback-scene">
+  <div class="big display">T</div>
+  <img src="../../assets/illustrations/mascot/pip-wave.png" alt="">
+</div>
+  </div>
+  <div class="scene-caption">
+    <p class="scene-word display">Tren</p>
+    <p class="fact">Un tren viaja sobre rieles y puede ser muy largo.</p>
+    <div class="mini-trace">
+      <span class="trace-hint">Trace</span>
+      <span class="trace">T</span><span class="trace">t</span>
+    </div>
+  </div>
+</div>
+</section>
+<section class="page verso letter-left theme-sky" data-page="50"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>50</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="letter-stage">
+    <div class="letter-halo"></div>
+    <div class="giant-letter display" aria-label="U u">
+      <span class="upper">U</span><span class="lower">u</span>
+    </div>
+    <img class="pip-sticker" src="../../assets/illustrations/mascot/pip-wave.png" alt="" style="left:55%;top:34%;width:1.47in;height:1.47in;transform:translate(-50%,-50%) rotate(6deg);">
+  </div>
+  <div class="letter-meta">
+    <p class="word-xl display">Uva</p>
+    <p class="pron">OO-va</p>
+    <p class="sentence">Uva empieza con U.</p>
+  </div>
+</div>
+</section>
+<section class="page recto letter-right theme-sky" data-page="51"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>51</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="scene-frame">
+    <img src="../../assets/illustrations/scenes/scene-apple.png" alt="Pip — Uva">
+  </div>
+  <div class="scene-caption">
+    <p class="scene-word display">Uva</p>
+    <p class="fact">Las uvas crecen en racimos y pueden ser verdes o moradas.</p>
+    <div class="mini-trace">
+      <span class="trace-hint">Trace</span>
+      <span class="trace">U</span><span class="trace">u</span>
+    </div>
+  </div>
+</div>
+</section>
+<section class="page verso letter-left theme-plum" data-page="52"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>52</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="letter-stage">
+    <div class="letter-halo"></div>
+    <div class="giant-letter display" aria-label="V v">
+      <span class="upper">V</span><span class="lower">v</span>
+    </div>
+    <img class="pip-sticker" src="../../assets/illustrations/mascot/pip-wave.png" alt="" style="left:50%;top:46%;width:1.55in;height:1.55in;transform:translate(-50%,-50%) rotate(-4deg);">
+  </div>
+  <div class="letter-meta">
+    <p class="word-xl display">Vaca</p>
+    <p class="pron">VAH-ka</p>
+    <p class="sentence">Vaca empieza con V.</p>
+  </div>
+</div>
+</section>
+<section class="page recto letter-right theme-plum" data-page="53"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>53</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="scene-frame">
+    <img src="../../assets/illustrations/scenes/scene-goat.png" alt="Pip — Vaca">
+  </div>
+  <div class="scene-caption">
+    <p class="scene-word display">Vaca</p>
+    <p class="fact">Una vaca nos da leche y come hierba todo el día.</p>
+    <div class="mini-trace">
+      <span class="trace-hint">Trace</span>
+      <span class="trace">V</span><span class="trace">v</span>
+    </div>
+  </div>
+</div>
+</section>
+<section class="page verso letter-left theme-peach" data-page="54"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>54</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="letter-stage">
+    <div class="letter-halo"></div>
+    <div class="giant-letter display" aria-label="W w">
+      <span class="upper">W</span><span class="lower">w</span>
+    </div>
+    <img class="pip-sticker" src="../../assets/illustrations/mascot/pip-wave.png" alt="" style="left:52%;top:38%;width:1.47in;height:1.47in;transform:translate(-50%,-50%) rotate(8deg);">
+  </div>
+  <div class="letter-meta">
+    <p class="word-xl display">Waffle</p>
+    <p class="pron">WAH-fle</p>
+    <p class="sentence">Waffle empieza con W.</p>
+  </div>
+</div>
+</section>
+<section class="page recto letter-right theme-peach" data-page="55"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>55</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="scene-frame">
+    <img src="../../assets/illustrations/scenes/scene-quilt.png" alt="Pip — Waffle">
+  </div>
+  <div class="scene-caption">
+    <p class="scene-word display">Waffle</p>
+    <p class="fact">Un waffle es un pastelito crujiente con cuadritos.</p>
+    <div class="mini-trace">
+      <span class="trace-hint">Trace</span>
+      <span class="trace">W</span><span class="trace">w</span>
+    </div>
+  </div>
+</div>
+</section>
+<section class="page verso letter-left theme-coral" data-page="56"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>56</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="letter-stage">
+    <div class="letter-halo"></div>
+    <div class="giant-letter display" aria-label="X x">
+      <span class="upper">X</span><span class="lower">x</span>
+    </div>
+    <img class="pip-sticker" src="../../assets/illustrations/mascot/pip-wave.png" alt="" style="left:54%;top:42%;width:1.55in;height:1.55in;transform:translate(-50%,-50%) rotate(-6deg);">
+  </div>
+  <div class="letter-meta">
+    <p class="word-xl display">Xilófono</p>
+    <p class="pron">see-LOH-fo-no</p>
+    <p class="sentence">Xilófono empieza con X.</p>
+  </div>
+</div>
+</section>
+<section class="page recto letter-right theme-coral" data-page="57"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>57</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="scene-frame">
+    <img src="../../assets/illustrations/scenes/scene-xylophone.png" alt="Pip — Xilófono">
+  </div>
+  <div class="scene-caption">
+    <p class="scene-word display">Xilófono</p>
+    <p class="fact">Un xilófono suena cuando golpeas sus barras de colores.</p>
+    <div class="mini-trace">
+      <span class="trace-hint">Trace</span>
+      <span class="trace">X</span><span class="trace">x</span>
+    </div>
+  </div>
+</div>
+</section>
+<section class="page verso letter-left theme-honey" data-page="58"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>58</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="letter-stage">
+    <div class="letter-halo"></div>
+    <div class="giant-letter display" aria-label="Y y">
+      <span class="upper">Y</span><span class="lower">y</span>
+    </div>
+    <img class="pip-sticker" src="../../assets/illustrations/mascot/pip-wave.png" alt="" style="left:48%;top:36%;width:1.47in;height:1.47in;transform:translate(-50%,-50%) rotate(12deg);">
+  </div>
+  <div class="letter-meta">
+    <p class="word-xl display">Yo-yo</p>
+    <p class="pron">YO-yo</p>
+    <p class="sentence">Yo-yo empieza con Y.</p>
+  </div>
+</div>
+</section>
+<section class="page recto letter-right theme-honey" data-page="59"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>59</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="scene-frame">
+    <img src="../../assets/illustrations/scenes/scene-yoyo.png" alt="Pip — Yo-yo">
+  </div>
+  <div class="scene-caption">
+    <p class="scene-word display">Yo-yo</p>
+    <p class="fact">Un yo-yo baja por un hilo y puede volver a subir.</p>
+    <div class="mini-trace">
+      <span class="trace-hint">Trace</span>
+      <span class="trace">Y</span><span class="trace">y</span>
+    </div>
+  </div>
+</div>
+</section>
+<section class="page verso letter-left theme-sage" data-page="60"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>60</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="letter-stage">
+    <div class="letter-halo"></div>
+    <div class="giant-letter display" aria-label="Z z">
+      <span class="upper">Z</span><span class="lower">z</span>
+    </div>
+    <img class="pip-sticker" src="../../assets/illustrations/mascot/pip-wave.png" alt="" style="left:56%;top:44%;width:1.55in;height:1.55in;transform:translate(-50%,-50%) rotate(4deg);">
+  </div>
+  <div class="letter-meta">
+    <p class="word-xl display">Zorro</p>
+    <p class="pron">SO-rro</p>
+    <p class="sentence">Zorro empieza con Z.</p>
+  </div>
+</div>
+</section>
+<section class="page recto letter-right theme-sage" data-page="61"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>61</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="scene-frame">
+    <img src="../../assets/illustrations/scenes/scene-zebra.png" alt="Pip — Zorro">
+  </div>
+  <div class="scene-caption">
+    <p class="scene-word display">Zorro</p>
+    <p class="fact">Un zorro es astuto, ligero y tiene una cola esponjosa.</p>
+    <div class="mini-trace">
+      <span class="trace-hint">Trace</span>
+      <span class="trace">Z</span><span class="trace">z</span>
+    </div>
+  </div>
+</div>
+</section>
+<section class="page verso tracing theme-honey" data-page="62"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>62</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <h1 class="page-heading display">Traza con Pip</h1>
+  <p class="lede">Empieza arriba. Ve despacio. Pip no tiene prisa.</p>
+  <p class="pron">Letras mayúsculas</p>
+  <div class="trace-grid"><div class="trace-cell"><span>A</span></div><div class="trace-cell"><span>B</span></div><div class="trace-cell"><span>C</span></div><div class="trace-cell"><span>D</span></div><div class="trace-cell"><span>E</span></div><div class="trace-cell"><span>F</span></div><div class="trace-cell"><span>G</span></div><div class="trace-cell"><span>H</span></div><div class="trace-cell"><span>I</span></div><div class="trace-cell"><span>J</span></div><div class="trace-cell"><span>K</span></div><div class="trace-cell"><span>L</span></div></div>
+</div>
+</section>
+<section class="page recto tracing theme-honey" data-page="63"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>63</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <h1 class="page-heading display">Traza con Pip</h1>
+  <p class="lede">Empieza arriba. Ve despacio. Pip no tiene prisa.</p>
+  <p class="pron">Letras mayúsculas</p>
+  <div class="trace-grid"><div class="trace-cell"><span>M</span></div><div class="trace-cell"><span>N</span></div><div class="trace-cell"><span>Ñ</span></div><div class="trace-cell"><span>O</span></div><div class="trace-cell"><span>P</span></div><div class="trace-cell"><span>Q</span></div><div class="trace-cell"><span>R</span></div><div class="trace-cell"><span>S</span></div><div class="trace-cell"><span>T</span></div><div class="trace-cell"><span>U</span></div><div class="trace-cell"><span>V</span></div><div class="trace-cell"><span>W</span></div></div>
+</div>
+</section>
+<section class="page verso tracing theme-honey" data-page="64"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>64</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <h1 class="page-heading display">Traza con Pip</h1>
+  <p class="lede">Empieza arriba. Ve despacio. Pip no tiene prisa.</p>
+  <p class="pron">Letras mayúsculas</p>
+  <div class="trace-grid"><div class="trace-cell"><span>X</span></div><div class="trace-cell"><span>Y</span></div><div class="trace-cell"><span>Z</span></div></div>
+</div>
+</section>
+<section class="page recto tracing theme-honey" data-page="65"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>65</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <h1 class="page-heading display">Traza con Pip</h1>
+  <p class="lede">Empieza arriba. Ve despacio. Pip no tiene prisa.</p>
+  <p class="pron">Letras minúsculas</p>
+  <div class="trace-grid"><div class="trace-cell"><span>a</span></div><div class="trace-cell"><span>b</span></div><div class="trace-cell"><span>c</span></div><div class="trace-cell"><span>d</span></div><div class="trace-cell"><span>e</span></div><div class="trace-cell"><span>f</span></div><div class="trace-cell"><span>g</span></div><div class="trace-cell"><span>h</span></div><div class="trace-cell"><span>i</span></div><div class="trace-cell"><span>j</span></div><div class="trace-cell"><span>k</span></div><div class="trace-cell"><span>l</span></div></div>
+</div>
+</section>
+<section class="page verso tracing theme-honey" data-page="66"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>66</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <h1 class="page-heading display">Traza con Pip</h1>
+  <p class="lede">Empieza arriba. Ve despacio. Pip no tiene prisa.</p>
+  <p class="pron">Letras minúsculas</p>
+  <div class="trace-grid"><div class="trace-cell"><span>m</span></div><div class="trace-cell"><span>n</span></div><div class="trace-cell"><span>ñ</span></div><div class="trace-cell"><span>o</span></div><div class="trace-cell"><span>p</span></div><div class="trace-cell"><span>q</span></div><div class="trace-cell"><span>r</span></div><div class="trace-cell"><span>s</span></div><div class="trace-cell"><span>t</span></div><div class="trace-cell"><span>u</span></div><div class="trace-cell"><span>v</span></div><div class="trace-cell"><span>w</span></div></div>
+</div>
+</section>
+<section class="page recto tracing theme-honey" data-page="67"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>67</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <h1 class="page-heading display">Traza con Pip</h1>
+  <p class="lede">Empieza arriba. Ve despacio. Pip no tiene prisa.</p>
+  <p class="pron">Letras minúsculas</p>
+  <div class="trace-grid"><div class="trace-cell"><span>x</span></div><div class="trace-cell"><span>y</span></div><div class="trace-cell"><span>z</span></div></div>
+</div>
+</section>
+<section class="page verso review theme-sage" data-page="68"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>68</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <h1 class="page-heading display">El alfabeto de Pip</h1>
+  <p class="lede">Señala cada letra. ¿Puedes decir su sonido?</p>
+  <p class="body-copy">Personas mayores: nombren una letra. Pequeños: ¡encuéntrenla!</p>
+  <div class="alpha-grid"><div class="alpha-chip"><span class="ch">A</span><span class="wd">Árbol</span></div><div class="alpha-chip"><span class="ch">B</span><span class="wd">Barco</span></div><div class="alpha-chip"><span class="ch">C</span><span class="wd">Casa</span></div><div class="alpha-chip"><span class="ch">D</span><span class="wd">Dado</span></div><div class="alpha-chip"><span class="ch">E</span><span class="wd">Elefante</span></div><div class="alpha-chip"><span class="ch">F</span><span class="wd">Flor</span></div><div class="alpha-chip"><span class="ch">G</span><span class="wd">Gato</span></div><div class="alpha-chip"><span class="ch">H</span><span class="wd">Helado</span></div><div class="alpha-chip"><span class="ch">I</span><span class="wd">Isla</span></div><div class="alpha-chip"><span class="ch">J</span><span class="wd">Jirafa</span></div><div class="alpha-chip"><span class="ch">K</span><span class="wd">Kiwi</span></div><div class="alpha-chip"><span class="ch">L</span><span class="wd">Luna</span></div><div class="alpha-chip"><span class="ch">M</span><span class="wd">Manzana</span></div><div class="alpha-chip"><span class="ch">N</span><span class="wd">Nube</span></div><div class="alpha-chip"><span class="ch">Ñ</span><span class="wd">Ñandú</span></div><div class="alpha-chip"><span class="ch">O</span><span class="wd">Oso</span></div><div class="alpha-chip"><span class="ch">P</span><span class="wd">Pelota</span></div><div class="alpha-chip"><span class="ch">Q</span><span class="wd">Queso</span></div><div class="alpha-chip"><span class="ch">R</span><span class="wd">Ratón</span></div><div class="alpha-chip"><span class="ch">S</span><span class="wd">Sol</span></div><div class="alpha-chip"><span class="ch">T</span><span class="wd">Tren</span></div><div class="alpha-chip"><span class="ch">U</span><span class="wd">Uva</span></div><div class="alpha-chip"><span class="ch">V</span><span class="wd">Vaca</span></div><div class="alpha-chip"><span class="ch">W</span><span class="wd">Waffle</span></div><div class="alpha-chip"><span class="ch">X</span><span class="wd">Xilófono</span></div><div class="alpha-chip"><span class="ch">Y</span><span class="wd">Yo-yo</span></div><div class="alpha-chip"><span class="ch">Z</span><span class="wd">Zorro</span></div></div>
+</div>
+</section>
+<section class="page recto matching theme-plum" data-page="69"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>69</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <h1 class="page-heading display">Empareja con Pip</h1>
+  <p class="lede">Dibuja una línea desde cada letra hasta su dibujo.</p>
+  <div class="match">
+    <div class="match-col"><div class="match-letter"><div class="bubble">A</div><div class="dot-line"></div></div><div class="match-letter"><div class="bubble">C</div><div class="dot-line"></div></div><div class="match-letter"><div class="bubble">G</div><div class="dot-line"></div></div><div class="match-letter"><div class="bubble">L</div><div class="dot-line"></div></div><div class="match-letter"><div class="bubble">S</div><div class="dot-line"></div></div><div class="match-letter"><div class="bubble">Z</div><div class="dot-line"></div></div></div>
+    <div class="match-col"><div class="match-pic"><img src="../../assets/illustrations/scenes/scene-sun.png" alt="Sol"><span class="wd" style="font-weight:800">Sol</span></div><div class="match-pic"><img src="../../assets/illustrations/scenes/scene-igloo.png" alt="Casa"><span class="wd" style="font-weight:800">Casa</span></div><div class="match-pic"><img src="../../assets/illustrations/scenes/scene-tree.png" alt="Árbol"><span class="wd" style="font-weight:800">Árbol</span></div><div class="match-pic"><img src="../../assets/illustrations/scenes/scene-moon.png" alt="Luna"><span class="wd" style="font-weight:800">Luna</span></div><div class="match-pic"><img src="../../assets/illustrations/scenes/scene-cat.png" alt="Gato"><span class="wd" style="font-weight:800">Gato</span></div><div class="match-pic"><img src="../../assets/illustrations/scenes/scene-zebra.png" alt="Zorro"><span class="wd" style="font-weight:800">Zorro</span></div></div>
+  </div>
+</div>
+</section>
+<section class="page verso certificate theme-coral" data-page="70"><div class="folio"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.2" fill="currentColor"/><circle cx="12" cy="5" r="2.2" fill="currentColor"/><circle cx="17" cy="7" r="2.2" fill="currentColor"/><ellipse cx="12" cy="15.5" rx="5.2" ry="4.2" fill="currentColor"/></svg>70</div>
+<div class="bleed-wash"></div>
+<div class="safe">
+  <div class="cert-frame">
+    <p class="kicker">Las aventuras del alfabeto de Pip</p>
+    <h1 class="cert-title display">¡Aprendí el alfabeto!</h1>
+    <p class="cert-body">Se certifica que un valiente explorador de letras terminó todo el alfabeto con Pip el zorrito.</p>
+    <img class="cert-photo" src="../../assets/illustrations/mascot/pip-celebrate.png" alt="">
+    <div class="cert-fields">
+      <div class="field"><label>Nombre del explorador</label><div class="line"></div></div>
+      <div class="field"><label>Fecha</label><div class="line"></div></div>
+    </div>
+    <p class="stamp">Sello de alegría de Pip</p>
+  </div>
+</div>
+</section>
+</body>
+</html>

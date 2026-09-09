@@ -1,0 +1,13 @@
+SIL Open Font License 1.1
+https://scripts.sil.org/OFL
+
+This project embeds:
+
+- Nunito (Jacques Le Bailly / The Nunito Project)
+- Fredoka (Milena Brandao / TypeTogether-adjacent OFL release via Google Fonts)
+- Baloo 2 (Ek Type)
+- Baloo Paaji 2 (Ek Type)
+
+These fonts may be used, studied, modified, and redistributed in commercial
+publications, including Amazon KDP paperbacks, provided the OFL is respected
+(you may not sell the fonts standalone). Keep this notice with the font files.
