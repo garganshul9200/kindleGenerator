@@ -1,0 +1,64 @@
+/* Kindle / e-reader edition — no print bleed, gutter, or write-in pages.
+   Square picture-book pages at trim size (8.5in), equal margins. */
+
+@page {
+  size: 8.5in 8.5in;
+  margin: 0;
+}
+
+body.edition-kindle {
+  --page: 8.5in;
+  --bleed: 0in;
+  --safe: 0.4in;
+  --gutter: 0.4in;
+  --outer: 0.4in;
+}
+
+body.edition-kindle .page {
+  width: 8.5in;
+  height: 8.5in;
+}
+
+body.edition-kindle .page.recto .safe,
+body.edition-kindle .page.verso .safe {
+  left: 0.4in;
+  right: 0.4in;
+}
+
+body.edition-kindle .folio {
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+body.edition-kindle .mini-trace,
+body.edition-kindle .cert-fields,
+body.edition-kindle .bonus-pad {
+  display: none;
+}
+
+body.edition-kindle .page.letter-right .scene-caption {
+  padding-bottom: 0.08in;
+}
+
+body.edition-kindle .cert-photo {
+  margin-bottom: 0.12in;
+}
+
+body.edition-kindle .certificate .closing-note {
+  margin-top: 0.18in;
+  font-size: 13pt;
+}
+
+/* EPUB / Kindle: one page per file — no stacked preview chrome */
+body.edition-kindle.epub {
+  padding: 0 !important;
+  background: var(--cream);
+}
+
+@media screen {
+  body.edition-kindle.epub .page {
+    margin: 0;
+    box-shadow: none;
+  }
+}

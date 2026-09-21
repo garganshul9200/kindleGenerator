@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "subtitle": "ABC Learning Book for Toddlers, Ages 2 to 8",
+    "tagline": "Come discover every letter with Pip the fox."
+  },
+  "back": {
+    "headline": "A letter adventure with Pip",
+    "blurb": "From A to Z, Pip the fox climbs, plays, and discovers a new word on every page. Look at the giant letters, find Pip in the pictures, say each sound out loud, and share a fun fact together — perfect for bedtime, car rides, and first readers.",
+    "bullets": [
+      "26 illustrated letter adventures",
+      "Look, say, and find Pip on every page",
+      "A celebration when you finish the alphabet"
+    ],
+    "closing": "Open the cover. Meet Pip. Start the adventure."
+  },
+  "front": {
+    "copyright_line": "A picture-book alphabet for curious little readers.",
+    "how_title": "How to read this book",
+    "how_intro": "Read it together. Look, say, and find Pip. There is no wrong way.",
+    "how_steps": [
+      {
+        "n": "1",
+        "title": "Look",
+        "text": "Look at the giant letter. Say its name."
+      },
+      {
+        "n": "2",
+        "title": "Say",
+        "text": "Say the sound, then say the word out loud."
+      },
+      {
+        "n": "3",
+        "title": "Find Pip",
+        "text": "Where is Pip hiding this time? What is Pip doing?"
+      },
+      {
+        "n": "4",
+        "title": "Discover",
+        "text": "Look at the big picture. Talk about the fun fact together."
+      }
+    ]
+  },
+  "activities": {
+    "review_title": "Pip’s alphabet",
+    "review_intro": "Look at each letter. Can you say its sound?",
+    "review_prompt": "Say the letter, then say the word. Pip is proud of you!"
+  },
+  "certificate": {
+    "kicker": "Pip’s Alphabet Adventures",
+    "title": "You learned the alphabet!",
+    "body": "You finished the whole alphabet with Pip the fox. What a brave letter explorer you are!",
+    "name_label": "Explorer’s name",
+    "date_label": "Date",
+    "stamp": "Pip’s stamp of delight",
+    "closing": "The End — for now. Tomorrow there are more words to find."
+  }
+}

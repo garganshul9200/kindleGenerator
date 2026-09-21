@@ -5,6 +5,7 @@ Usage:
     python3 src/build.py --lang en
     python3 src/build.py --lang hi --pdf
     python3 src/build.py --lang es --pdf
+    python3 src/build.py --lang en --format kindle
 """
 
 from __future__ import annotations
@@ -20,11 +21,37 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 THEMES = ("coral", "honey", "sage", "sky", "plum", "peach")
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from epub import export_kindle_epub
+from docx_kindle import export_kindle_docx
 
 
 def load_json(path: Path) -> dict:
     with path.open(encoding="utf-8") as f:
         return json.load(f)
+
+
+def deep_merge(base: dict, overlay: dict) -> dict:
+    out = dict(base)
+    for key, value in overlay.items():
+        if key in out and isinstance(out[key], dict) and isinstance(value, dict):
+            out[key] = deep_merge(out[key], value)
+        else:
+            out[key] = value
+    return out
+
+
+def load_content(lang: str, edition: str) -> dict:
+    content_path = ROOT / "content" / f"{lang}.json"
+    if not content_path.exists():
+        available = [p.stem for p in (ROOT / "content").glob("*.json") if p.stem != "schema" and not p.stem.endswith("-kindle")]
+        raise SystemExit(f"No content file for '{lang}'. Available: {', '.join(available)}")
+    content = load_json(content_path)
+    if edition == "kindle":
+        overlay = ROOT / "content" / f"{lang}-kindle.json"
+        if overlay.exists():
+            content = deep_merge(content, load_json(overlay))
+    return content
 
 
 def e(text) -> str:
@@ -74,10 +101,12 @@ PAW = """<svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" 
 
 
 class BookBuilder:
-    def __init__(self, content: dict, config: dict, lang: str):
+    def __init__(self, content: dict, config: dict, lang: str, edition: str = "print"):
         self.content = content
         self.config = config
         self.lang = lang
+        self.edition = edition
+        self.kindle = edition == "kindle"
         self.meta = content["meta"]
         self.front = content["front"]
         self.back = content.get("back") or {}
@@ -275,13 +304,18 @@ class BookBuilder:
   </p>
   <div class="imprint">
     {e(cfg.get("publisher", ""))}<br>
-    Paperback · {e(self.meta.get("language", ""))} · {e(self.meta.get("age", ""))}<br>
-    Printed via Amazon KDP · Trim 8.5 × 8.5 in
+    {self._imprint_binding()}
   </div>
 </div>
 """
             + self.end_page()
         )
+
+    def _imprint_binding(self) -> str:
+        lang_age = f'{e(self.meta.get("language", ""))} · {e(self.meta.get("age", ""))}'
+        if self.kindle:
+            return f"Kindle eBook · {lang_age}"
+        return f"Paperback · {lang_age}<br>\n    Printed via Amazon KDP · Trim 8.5 × 8.5 in"
 
     def add_belongs(self) -> None:
         f = self.front
@@ -391,12 +425,19 @@ class BookBuilder:
 """
             + self.end_page()
         )
-        trace_letters = "".join(
-            f'<span class="trace">{e(ch)}</span>'
-            for ch in (upper, lower)
-            if ch
-        )
         alt = f"{self.meta.get('mascot', 'Pip')} — {item['word']}"
+        mini_trace = ""
+        if not self.kindle:
+            trace_letters = "".join(
+                f'<span class="trace">{e(ch)}</span>'
+                for ch in (upper, lower)
+                if ch
+            )
+            mini_trace = f"""
+    <div class="mini-trace">
+      <span class="trace-hint">Trace</span>
+      {trace_letters}
+    </div>"""
         self.pages.append(
             self.start_page("letter-right", theme=theme)
             + f"""
@@ -407,11 +448,7 @@ class BookBuilder:
   </div>
   <div class="scene-caption">
     <p class="scene-word display">{e(item["word"])}</p>
-    <p class="fact">{e(item["fact"])}</p>
-    <div class="mini-trace">
-      <span class="trace-hint">Trace</span>
-      {trace_letters}
-    </div>
+    <p class="fact">{e(item["fact"])}</p>{mini_trace}
   </div>
 </div>
 """
@@ -754,8 +791,7 @@ class BookBuilder:
         celebrate = f"{self.asset}/illustrations/mascot/pip-celebrate.png"
         if not (ROOT / "assets/illustrations/mascot/pip-celebrate.png").exists():
             celebrate = self.mascot_src()
-        # Certificate looks better on a right-hand page.
-        if self.side() == "verso":
+        if not self.kindle and self.side() == "verso":
             self.pages.append(
                 self.start_page("closing", theme="coral")
                 + f"""
@@ -767,6 +803,17 @@ class BookBuilder:
 """
                 + self.end_page()
             )
+        fields = ""
+        closing = ""
+        if self.kindle:
+            if c.get("closing"):
+                closing = f'<p class="closing-note">{e(c.get("closing", ""))}</p>'
+        else:
+            fields = f"""
+    <div class="cert-fields">
+      <div class="field"><label>{e(c["name_label"])}</label><div class="line"></div></div>
+      <div class="field"><label>{e(c["date_label"])}</label><div class="line"></div></div>
+    </div>"""
         self.pages.append(
             self.start_page("certificate", theme="coral")
             + f"""
@@ -777,11 +824,9 @@ class BookBuilder:
     <h1 class="cert-title display">{e(c["title"])}</h1>
     <p class="cert-body">{e(c["body"])}</p>
     <img class="cert-photo" src="{celebrate}" alt="">
-    <div class="cert-fields">
-      <div class="field"><label>{e(c["name_label"])}</label><div class="line"></div></div>
-      <div class="field"><label>{e(c["date_label"])}</label><div class="line"></div></div>
-    </div>
+    {fields}
     <p class="stamp">{e(c["stamp"])}</p>
+    {closing}
   </div>
 </div>
 """
@@ -793,12 +838,18 @@ class BookBuilder:
             self.add_cover()
         self.add_title()
         self.add_copyright()
-        self.add_belongs()
+        if not self.kindle:
+            self.add_belongs()
         self.add_meet()
         self.add_how()
-        self.ensure_next_is_verso()
+        if not self.kindle:
+            self.ensure_next_is_verso()
         for i in range(len(self.letters)):
             self.add_letter_spread(index=i)
+        if self.kindle:
+            self.add_review()
+            self.add_certificate()
+            return
         self.add_tracing()
         self.add_review()
         self.add_matching()
@@ -832,9 +883,14 @@ class BookBuilder:
                 + self.end_page()
             )
 
+    def stylesheet(self, font_rel: str = "../../assets/fonts/book") -> str:
+        css = font_faces(font_rel) + "\n" + (ROOT / "styles" / "print.css").read_text(encoding="utf-8")
+        if self.kindle:
+            css += "\n" + (ROOT / "styles" / "kindle.css").read_text(encoding="utf-8")
+        return css
+
     def document(self, body: str, title: str) -> str:
-        css_print = (ROOT / "styles" / "print.css").read_text(encoding="utf-8")
-        fonts = font_faces("../../assets/fonts/book")
+        css = self.stylesheet()
         return f"""<!DOCTYPE html>
 <html lang="{e(self.meta.get("language_code", "en"))}">
 <head>
@@ -842,11 +898,10 @@ class BookBuilder:
 <title>{e(title)}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-{fonts}
-{css_print}
+{css}
 </style>
 </head>
-<body class="script-{e(self.script)}">
+<body class="script-{e(self.script)} edition-{e(self.edition)}">
 {body}
 </body>
 </html>
@@ -978,32 +1033,60 @@ def export_pdf(html_path: Path, pdf_path: Path) -> bool:
     return False
 
 
-def build(lang: str, make_pdf: bool, with_cover: bool) -> None:
-    content_path = ROOT / "content" / f"{lang}.json"
-    if not content_path.exists():
-        available = [p.stem for p in (ROOT / "content").glob("*.json") if p.stem != "schema"]
-        raise SystemExit(f"No content file for '{lang}'. Available: {', '.join(available)}")
-    content = load_json(content_path)
+def build(lang: str, make_pdf: bool, with_cover: bool, edition: str = "print") -> None:
+    content = load_content(lang, edition)
     config = load_json(ROOT / "config" / "book.json")
-    out = ROOT / "output" / lang
+    out_name = f"{lang}-kindle" if edition == "kindle" else lang
+    out = ROOT / "output" / out_name
     if out.exists():
         shutil.rmtree(out)
     out.mkdir(parents=True)
 
-    builder = BookBuilder(content, config, lang)
+    builder = BookBuilder(content, config, lang, edition=edition)
     builder.build_pages(include_cover=with_cover)
     interior = builder.document("\n".join(builder.pages), content["meta"]["title"])
     interior_path = out / "interior.html"
     write(interior_path, interior)
 
-    # Standalone front + back covers (preview / hardcover panels)
-    cover_builder = BookBuilder(content, config, lang)
+    cover_builder = BookBuilder(content, config, lang, edition=edition)
     cover_builder.pages = []
     cover_builder.n = 0
     cover_builder.add_cover()
     write(out / "cover-front.html", cover_builder.document("\n".join(cover_builder.pages), content["meta"]["title"] + " — cover"))
 
-    back_builder = BookBuilder(content, config, lang)
+    if edition == "kindle":
+        epub_path = out / "pips-alphabet-kindle.epub"
+        export_kindle_epub(
+            pages=builder.pages,
+            css=builder.stylesheet(),
+            meta=content["meta"],
+            author=config.get("author", ""),
+            publisher=config.get("publisher", ""),
+            dest=epub_path,
+        )
+        print(f"  wrote {epub_path.relative_to(ROOT)}")
+        docx_path = out / f"pips-alphabet-{lang}-kindle.docx"
+        export_kindle_docx(content=content, config=config, dest=docx_path)
+        print(f"  wrote {docx_path.relative_to(ROOT)}")
+        meta_out = {
+            "language": content["meta"]["language"],
+            "title": content["meta"]["title"],
+            "edition": "kindle",
+            "page_count": builder.n,
+            "page": "8.5in × 8.5in (no bleed)",
+            "letters": len(builder.letters),
+            "epub": str(epub_path.relative_to(ROOT)),
+            "docx": str(docx_path.relative_to(ROOT)),
+            "notes": "Read-only picture book. Upload cover-front as the Kindle cover; use the EPUB or DOCX as the manuscript.",
+        }
+        write(out / "build-info.json", json.dumps(meta_out, indent=2, ensure_ascii=False))
+        print(f"\n{content['meta']['title']} (Kindle): {builder.n} pages, {len(builder.letters)} letters.")
+        if make_pdf:
+            export_pdf(interior_path, out / "interior.pdf")
+            export_pdf(out / "cover-front.html", out / "cover-front.pdf")
+        return
+
+    back_builder = BookBuilder(content, config, lang, edition=edition)
     back_builder.pages = []
     back_builder.n = 0
     back_builder.add_cover_back()
@@ -1015,6 +1098,7 @@ def build(lang: str, make_pdf: bool, with_cover: bool) -> None:
     meta_out = {
         "language": content["meta"]["language"],
         "title": content["meta"]["title"],
+        "edition": "print",
         "page_count": builder.n,
         "trim": "8.5in × 8.5in",
         "pdf_page": "8.75in × 8.75in (includes 0.125in bleed)",
@@ -1034,10 +1118,11 @@ def build(lang: str, make_pdf: bool, with_cover: bool) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description="Build Pip's Alphabet for KDP")
     parser.add_argument("--lang", default="en", help="content file stem: en, hi, pa, es, fr")
+    parser.add_argument("--format", dest="edition", choices=("print", "kindle"), default="print", help="print paperback or Kindle read-only e-book")
     parser.add_argument("--pdf", action="store_true", help="also export PDF via Playwright")
     parser.add_argument("--no-cover", action="store_true", help="omit illustrated cover from interior")
     args = parser.parse_args()
-    build(args.lang, make_pdf=args.pdf, with_cover=not args.no_cover)
+    build(args.lang, make_pdf=args.pdf, with_cover=not args.no_cover, edition=args.edition)
 
 
 if __name__ == "__main__":

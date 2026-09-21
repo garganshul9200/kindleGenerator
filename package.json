@@ -9,7 +9,12 @@
     "build:es": "python3 src/build.py --lang es",
     "build:fr": "python3 src/build.py --lang fr",
     "pdf:en": "python3 src/build.py --lang en --pdf",
-    "pdf:en:kdp": "python3 src/build.py --lang en --pdf --no-cover"
+    "pdf:hi": "python3 src/build.py --lang hi --pdf",
+    "build:en:kindle": "python3 src/build.py --lang en --format kindle",
+    "pdf:en:kindle": "python3 src/build.py --lang en --format kindle --pdf",
+    "build:hi:kindle": "python3 src/build.py --lang hi --format kindle",
+    "pdf:hi:kindle": "python3 src/build.py --lang hi --format kindle --pdf",
+    "marketing:en:kindle": "node scripts/export-kindle-marketing.mjs"
   },
   "keywords": [
     "kdp",

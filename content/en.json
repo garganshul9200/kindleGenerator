@@ -3,13 +3,13 @@
     "language": "English",
     "language_code": "en",
     "script": "latin",
-    "title": "Pip's Alphabet",
-    "subtitle": "A Letter Adventure",
-    "series": "Pip's Alphabet Adventures",
+    "title": "Pip's Alphabet Adventures",
+    "subtitle": "ABC Learning and Letter Tracing Book for Toddlers, Ages 2 to 8",
+    "series": "",
     "mascot": "Pip",
     "tagline": "Come discover every letter with Pip the fox.",
     "direction": "ltr",
-    "age": "Ages 3–8"
+    "age": ""
   },
   "back": {
     "headline": "A letter adventure with Pip",

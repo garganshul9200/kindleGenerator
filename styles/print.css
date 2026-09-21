@@ -410,10 +410,9 @@ body {
 .pip-spot {
   width: 2.35in;
   height: 2.35in;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 0.07in solid #fff;
-  box-shadow: 0 0.1in 0.22in var(--shadow);
+  object-fit: contain;
+  background: transparent;
+  filter: drop-shadow(0 0.06in 0.1in rgba(90, 50, 30, 0.18));
 }
 
 .meet-row {
@@ -521,10 +520,9 @@ body {
   position: absolute;
   width: 1.55in;
   height: 1.55in;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 0.055in solid #fff;
-  box-shadow: 0 0.08in 0.18in var(--shadow);
+  object-fit: contain;
+  background: transparent;
+  filter: drop-shadow(0 0.05in 0.08in rgba(90, 50, 30, 0.16));
   z-index: 3;
 }
 
@@ -1049,10 +1047,9 @@ body {
 .cert-photo {
   width: 2.05in;
   height: 2.05in;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 0.06in solid #fff;
-  box-shadow: 0 0.08in 0.18in var(--shadow);
+  object-fit: contain;
+  background: transparent;
+  filter: drop-shadow(0 0.05in 0.08in rgba(90, 50, 30, 0.16));
   margin: 0.06in 0 0.16in;
 }
 .cert-fields {

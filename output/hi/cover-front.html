@@ -361,8 +361,124 @@ body {
   z-index: 3;
   font-size: 13pt;
   font-weight: 700;
+  color: #fffdf8;
+  text-shadow:
+    0 1px 2px rgba(60, 35, 20, 0.55),
+    0 0 10px rgba(60, 35, 20, 0.35);
+}
+
+/* ---------- Back cover ---------- */
+.page.cover-back {
+  background:
+    radial-gradient(circle at 82% 78%, rgba(240, 208, 196, 0.55) 0%, transparent 42%),
+    linear-gradient(165deg, #f8eee6 0%, #f3e4d4 48%, #efe0cf 100%);
+}
+
+.cover-back-wash {
+  opacity: 0.35;
+}
+
+.cover-back-mascot {
+  position: absolute;
+  right: 0.45in;
+  bottom: 1.75in;
+  width: 2.35in;
+  height: 2.35in;
+  object-fit: contain;
+  z-index: 2;
+  pointer-events: none;
+  filter: drop-shadow(0 0.06in 0.08in rgba(90, 50, 30, 0.12));
+}
+
+.page.recto.cover-back .cover-back-mascot { right: 0.55in; }
+.page.verso.cover-back .cover-back-mascot { right: 0.35in; }
+
+.cover-back-safe {
+  position: absolute;
+  left: 0.55in;
+  right: 0.55in;
+  top: 0.48in;
+  bottom: 0.48in;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.cover-back-title {
+  font-size: 34pt;
+  line-height: 0.95;
+  margin: 0.06in 0 0.1in;
+  color: #c94b3a;
+}
+
+.cover-back-headline {
+  font-size: 15pt;
+  font-weight: 750;
+  margin: 0 0 0.16in;
   color: var(--ink);
-  text-shadow: 0 1px 0 rgba(255, 253, 248, 0.7);
+}
+
+.cover-back-blurb {
+  font-size: 12.5pt;
+  font-weight: 600;
+  line-height: 1.35;
+  margin: 0 0 0.16in;
+  color: var(--ink-soft);
+  max-width: 5.5in;
+}
+
+.cover-back-bullets {
+  margin: 0 0 0.18in;
+  padding: 0 0 0 0.22in;
+  max-width: 4.8in;
+}
+
+.cover-back-bullets li {
+  font-size: 11.5pt;
+  font-weight: 700;
+  color: var(--deep, #a33f32);
+  margin: 0 0 0.06in;
+}
+
+.cover-back-closing {
+  font-size: 13pt;
+  font-weight: 750;
+  margin: 0 0 0.16in;
+  color: var(--ink);
+  max-width: 4.6in;
+}
+
+.cover-back-imprint {
+  margin-top: auto;
+  margin-bottom: 0.85in;
+  font-size: 10pt;
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
+.cover-back-barcode {
+  position: absolute;
+  right: 0.05in;
+  bottom: 0.05in;
+  width: 2.0in;
+  height: 1.15in;
+  border: 1.5pt dashed rgba(163, 63, 50, 0.35);
+  border-radius: 0.08in;
+  background: rgba(255, 253, 248, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+}
+
+.cover-back-barcode span {
+  font-size: 8pt;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(163, 63, 50, 0.45);
 }
 
 /* ---------- Quiet interior pages ---------- */
@@ -434,10 +550,9 @@ body {
 .pip-spot {
   width: 2.35in;
   height: 2.35in;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 0.07in solid #fff;
-  box-shadow: 0 0.1in 0.22in var(--shadow);
+  object-fit: contain;
+  background: transparent;
+  filter: drop-shadow(0 0.06in 0.1in rgba(90, 50, 30, 0.18));
 }
 
 .meet-row {
@@ -545,10 +660,9 @@ body {
   position: absolute;
   width: 1.55in;
   height: 1.55in;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 0.055in solid #fff;
-  box-shadow: 0 0.08in 0.18in var(--shadow);
+  object-fit: contain;
+  background: transparent;
+  filter: drop-shadow(0 0.05in 0.08in rgba(90, 50, 30, 0.16));
   z-index: 3;
 }
 
@@ -743,33 +857,35 @@ body {
 .match {
   display: grid;
   grid-template-columns: 1fr 1.15fr;
-  gap: 0.28in;
+  gap: 0.22in;
   flex: 1;
-  margin-top: 0.12in;
+  min-height: 0;
+  margin-top: 0.1in;
 }
 .match-col {
   display: flex;
   flex-direction: column;
-  gap: 0.16in;
+  gap: 0.1in;
+  min-height: 0;
 }
 .match-letter, .match-pic {
   display: flex;
   align-items: center;
-  gap: 0.14in;
+  gap: 0.12in;
   background: var(--white);
-  border-radius: 0.18in;
-  padding: 0.08in 0.12in;
-  min-height: 0.95in;
+  border-radius: 0.14in;
+  padding: 0.06in 0.1in;
+  min-height: 0.82in;
   border: 0.02in solid var(--soft, var(--paper-line));
 }
 .bubble {
-  width: 0.62in;
-  height: 0.62in;
+  width: 0.56in;
+  height: 0.56in;
   border-radius: 50%;
   background: var(--accent, #d45d4a);
   color: #fff;
   font-family: "Fredoka", "Baloo 2", "Baloo Paaji 2", sans-serif;
-  font-size: 22pt;
+  font-size: 20pt;
   font-weight: 650;
   display: flex;
   align-items: center;
@@ -777,15 +893,260 @@ body {
   flex-shrink: 0;
 }
 .match-pic img {
-  width: 0.82in;
-  height: 0.82in;
+  width: 0.7in;
+  height: 0.7in;
   object-fit: cover;
-  border-radius: 0.12in;
+  border-radius: 0.1in;
+  flex-shrink: 0;
 }
 .dot-line {
   flex: 1;
   border-bottom: 0.03in dotted var(--paper-line);
   height: 0;
+}
+
+/* Match Pip uses the same compact row layout as letter matching */
+.page.match-pip .page-heading {
+  font-size: 28pt;
+}
+.match-pip-pic {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.1in;
+}
+.match-pip-pic img {
+  width: 0.7in;
+  height: 0.7in;
+}
+.match-pip-cap {
+  font-size: 10pt !important;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.bubble.small {
+  width: 0.42in;
+  height: 0.42in;
+  font-size: 14pt;
+}
+
+/* ---------- Find the letter ---------- */
+.page.find-letter .page-heading,
+.page.sequence .page-heading,
+.page.odd-one .page-heading,
+.page.write-practice .page-heading {
+  font-size: 28pt;
+  margin-bottom: 0.1in;
+}
+.page.find-letter .lede,
+.page.sequence .lede,
+.page.odd-one .lede,
+.page.write-practice .lede,
+.page.match-pip .lede,
+.page.matching .lede {
+  font-size: 12.5pt;
+  margin-bottom: 0.1in;
+}
+
+.find-game {
+  display: flex;
+  flex-direction: column;
+  gap: 0.08in;
+  flex: 1;
+  min-height: 0;
+  margin-top: 0.06in;
+}
+.find-row {
+  display: grid;
+  grid-template-columns: 1.55in 1fr;
+  gap: 0.1in;
+  align-items: center;
+  background: var(--white);
+  border-radius: 0.12in;
+  padding: 0.05in 0.1in;
+  border: 0.02in solid var(--soft, var(--paper-line));
+}
+.find-prompt {
+  display: flex;
+  align-items: center;
+  gap: 0.08in;
+}
+.find-prompt .wd {
+  font-size: 10pt;
+  font-weight: 800;
+  color: var(--ink);
+}
+.find-choices {
+  display: flex;
+  gap: 0.08in;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+}
+.find-choice {
+  width: 0.58in;
+  height: 0.58in;
+  border-radius: 0.1in;
+  border: 0.02in dashed var(--accent);
+  background: rgba(255, 253, 248, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.find-choice span {
+  font-family: "Fredoka", "Baloo 2", "Baloo Paaji 2", sans-serif;
+  font-size: 18pt;
+  font-weight: 650;
+  color: var(--accent);
+}
+
+/* ---------- What comes next ---------- */
+.seq-game {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12in;
+  flex: 1;
+  min-height: 0;
+  margin-top: 0.1in;
+  justify-content: flex-start;
+}
+.seq-row {
+  display: flex;
+  gap: 0.12in;
+  justify-content: center;
+}
+.seq-cell {
+  width: 1.0in;
+  height: 1.0in;
+  border-radius: 0.14in;
+  background: var(--white);
+  border: 0.02in solid var(--soft, var(--paper-line));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.seq-cell span {
+  font-family: "Fredoka", "Baloo 2", "Baloo Paaji 2", sans-serif;
+  font-size: 32pt;
+  font-weight: 650;
+  color: var(--accent);
+}
+.seq-cell.blank {
+  border: 0.03in dashed var(--accent);
+  background: rgba(255, 253, 248, 0.65);
+}
+
+/* ---------- Pick Pip’s picture ---------- */
+.odd-game {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12in;
+  flex: 1;
+  min-height: 0;
+  margin-top: 0.08in;
+}
+.odd-card {
+  display: grid;
+  grid-template-columns: 0.62in 1fr;
+  gap: 0.1in;
+  align-items: center;
+  background: var(--white);
+  border-radius: 0.14in;
+  padding: 0.08in 0.1in;
+  border: 0.02in solid var(--soft, var(--paper-line));
+}
+.odd-letter {
+  display: flex;
+  justify-content: center;
+}
+.odd-choices {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.08in;
+}
+.odd-choice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.03in;
+  padding: 0.04in;
+  border-radius: 0.1in;
+  border: 0.02in dashed var(--paper-line);
+}
+.odd-choice img {
+  width: 100%;
+  height: 0.78in;
+  object-fit: cover;
+  border-radius: 0.08in;
+}
+.odd-choice .wd {
+  font-size: 7.5pt;
+  font-weight: 800;
+  color: var(--ink-soft);
+  text-align: center;
+  line-height: 1.1;
+}
+
+/* ---------- Write with Pip ---------- */
+.write-game {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1in;
+  flex: 1;
+  min-height: 0;
+  margin-top: 0.08in;
+}
+.write-row {
+  display: flex;
+  gap: 0.07in;
+  align-items: center;
+}
+.write-model {
+  width: 0.62in;
+  height: 0.62in;
+  border-radius: 0.12in;
+  background: var(--accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.write-model span {
+  font-family: "Fredoka", "Baloo 2", "Baloo Paaji 2", sans-serif;
+  font-size: 22pt;
+  font-weight: 650;
+}
+.write-box {
+  flex: 1;
+  height: 0.62in;
+  border-radius: 0.1in;
+  border: 0.02in dashed var(--accent);
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.write-box .ghost {
+  font-family: "Fredoka", "Baloo 2", "Baloo Paaji 2", sans-serif;
+  font-size: 22pt;
+  font-weight: 550;
+  color: transparent;
+  -webkit-text-stroke: 1.4pt var(--accent);
+  opacity: 0.45;
+}
+.write-box.empty {
+  border-style: solid;
+  border-color: var(--paper-line);
+}
+
+.bonus-pad {
+  width: 5.8in;
+  height: 3.6in;
+  margin-top: 0.25in;
+  border-radius: 0.2in;
+  border: 0.03in dashed var(--accent);
+  background: rgba(255, 253, 248, 0.55);
 }
 
 /* ---------- Certificate ---------- */
@@ -826,10 +1187,9 @@ body {
 .cert-photo {
   width: 2.05in;
   height: 2.05in;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 0.06in solid #fff;
-  box-shadow: 0 0.08in 0.18in var(--shadow);
+  object-fit: contain;
+  background: transparent;
+  filter: drop-shadow(0 0.05in 0.08in rgba(90, 50, 30, 0.16));
   margin: 0.06in 0 0.16in;
 }
 .cert-fields {
@@ -858,7 +1218,7 @@ h1, h2, h3, p { font-weight: 700; }
 
 </style>
 </head>
-<body class="script-devanagari">
+<body class="script-devanagari edition-print">
 <section class="page recto cover theme-coral unnumbered" data-page="1">
 <div class="bleed-wash"></div>
 <img class="cover-art" src="../../assets/illustrations/cover-art.png" alt="">
@@ -867,7 +1227,7 @@ h1, h2, h3, p { font-weight: 700; }
   <p class="kicker">पिप की वर्णमाला यात्रा</p>
   <h1 class="cover-title display">पिप की वर्णमाला</h1>
   <p class="cover-sub">अक्षरों की एक मज़ेदार यात्रा</p>
-  <span class="cover-age">३–७ वर्ष</span>
+  <span class="cover-age">Ages 2–8</span>
 </div>
 <p class="cover-tag">पिप लोमड़ी के साथ हर अक्षर की खोज करो।</p>
 </section>

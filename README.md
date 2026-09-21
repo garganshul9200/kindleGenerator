@@ -1,6 +1,6 @@
 # Pip's Alphabet — KDP paperback template
 
-A print-ready children's alphabet book system for Amazon KDP.
+A print-ready children's alphabet book system for Amazon KDP, plus a read-only Kindle edition of the English book.
 
 Content lives in JSON. Layout lives in CSS. Swap the language file, rebuild, and you have a new edition — English, Hindi, Punjabi, Spanish, or French.
 
@@ -84,6 +84,37 @@ python3 src/build.py --lang en --pdf --no-cover
 so page 1 of the PDF is the title page, not a second copy of the cover. The illustrated covers are still built as `cover-front` / `cover-back` / `cover-wrap`.
 
 Chrome fallback (no Playwright): open `interior.html` → Print → Save as PDF → paper size **8.75in × 8.75in**, margins **None**, background graphics **On**.
+
+## Kindle e-book (English, read-only)
+
+Kindle devices cannot be written on, so this edition is a **children’s reader**: look, say, find Pip, and learn the word. It reuses the English letters and art, and drops every trace / write / circle / draw-a-line page.
+
+```bash
+python3 src/build.py --lang en --format kindle
+```
+
+That writes `output/en-kindle/`:
+
+- `interior.html` — preview in a browser (pages stack vertically)
+- `cover-front.html` — Kindle storefront cover
+- `pips-alphabet-kindle.epub` — fixed-layout manuscript for KDP Kindle
+- `build-info.json`
+
+Open `output/en-kindle/interior.html` to proof. Upload the EPUB as the Kindle manuscript and a PNG/JPEG of the front cover (export `cover-front.html` to an image, or use `--pdf` for `cover-front.pdf`).
+
+Kindle pages: cover, title, copyright, Meet Pip, How to read this book, A–Z letter + scene spreads (no mini-trace), alphabet recap, celebration (no name/date lines). Paperback worksheets and 72-page padding are omitted.
+
+Copy unique to Kindle lives in `content/en-kindle.json` and is merged over `content/en.json`. Print English is unchanged.
+
+## Kindle e-book (Hindi Varnamala)
+
+Same read-only Kindle pipeline for **पिप की वर्णमाला** (49 letters, Ages 2–8):
+
+```bash
+python3 src/build.py --lang hi --format kindle --pdf --no-cover
+```
+
+Full guide: [docs/hindi-kindle.md](docs/hindi-kindle.md) — build commands, upload checklist, and the complete अ–ज्ञ word list.
 
 ## Other languages
 

@@ -1,0 +1,10 @@
+{
+  "language": "Hindi",
+  "title": "पिप की वर्णमाला",
+  "edition": "kindle",
+  "page_count": 104,
+  "page": "8.5in × 8.5in (no bleed)",
+  "letters": 49,
+  "epub": "output/hi-kindle/pips-alphabet-kindle.epub",
+  "notes": "Read-only picture book. Upload cover-front as the Kindle cover and the EPUB as the manuscript."
+}

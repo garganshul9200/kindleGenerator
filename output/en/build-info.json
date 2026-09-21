@@ -1,9 +1,10 @@
 {
   "language": "English",
-  "title": "Pip's Alphabet",
-  "page_count": 94,
+  "title": "Pip's Alphabet Adventures",
+  "edition": "print",
+  "page_count": 96,
   "trim": "8.5in × 8.5in",
   "pdf_page": "8.75in × 8.75in (includes 0.125in bleed)",
   "letters": 26,
-  "spine_in_white_paper": 0.2117
+  "spine_in_white_paper": 0.2162
 }
